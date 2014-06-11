@@ -1,0 +1,25 @@
+<h1>List all Products</h1>
+ 
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Manufacturer</th>
+    <th>Description</th>
+    <th>Quantity Sold</th>
+    <th>Quantity Left</th>
+    <th>Archieved</th>
+  </tr>
+ 
+  <% @products.each do |product| %>
+    <tr>
+      <td><%= product.id %></td>
+      <td><%= product.name %></td>
+      <td><%= Manufacture.find(product.manufacturer).name %></td>
+      <td><%= product.description %></td>
+      <td><%= product.quantity_sold %></td>
+      <td><%= product.quantity_left %></td>
+      <td><%= product.archieved %></td>
+    </tr>
+  <% end %>
+</table>
