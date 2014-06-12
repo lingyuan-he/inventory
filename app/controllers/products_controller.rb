@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
 	
 	def show
 		@product = Product.find(params[:id])
-		@manufacture = Manufacturer.find(@product.manufacturer).name
+		@manufacturer = Manufacturer.find(@product.manufacturer).name
 	end
 	
   def create
@@ -39,7 +39,7 @@ class ProductsController < ApplicationController
   def destroy
     @prodcut = Product.find(params[:id])
     @product.destroy
-    redirect_to product_path
+    redirect_to products_path
   end
-  
+
 end

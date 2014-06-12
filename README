@@ -3,10 +3,22 @@
 Created June 10th 2014
 
 June 10th
-- ddd products controller
+- add products controller
 - create Product model
 
 June 11th
 - create Manufacturer model
-- edit migrations
-- edit products index page
+- add manufacturers controller
+- edit migrations: create products/create manufacturers
+- add views to products: index/show/new/edit
+- add to products controller: index/new/show/create/edit/update/destroy
+- add to manufacturers controller: new/edit
+
+June 12th
+- add views to manufacurers: index/show
+- add to Manufacturer controllder: index/new/show/create/edit/update/destroy
+- edit Manufacturer model for data validation
+- fix problem: /manufacturers/new not found (form url wrongly directed to [POST] /manufacturers/:id/new, should be [POST] /manufacturers)
+- fix problem: /manufacturer/:id/edit performs create (form_for @manufacturer do |f|, instead of form_for :manufacturer)
+- fix new product page manufacturer drop-down
+

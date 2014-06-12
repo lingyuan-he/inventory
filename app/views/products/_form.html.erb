@@ -16,7 +16,7 @@
   </p>
   <p>
     <%= f.label :manufacturer %><br>
-    <%= f.select(:manufacturer, ["Please Select", @manufacturers]) %>
+    <%= f.collection_select(:manufacturer_id, Manufacturer.order(:name), :id, :name, {:include_blank => "Please select"}) %>
   </p>
   <p>
     <%= f.label :description %><br>

@@ -1,2 +1,29 @@
 <h1>Product Page</h1>
-
+<p>
+  <strong>ID:</strong>
+  <%= @product.id %>
+</p>
+<p>
+  <strong>Name:</strong>
+  <%= @product.title %>
+</p>
+<p>
+  <strong>Manufacturer:</strong>
+  <%= @manufacturer %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @product.description %>
+</p>
+<p>
+  <strong>Quantity Sold:</strong>
+  <%= @product.quantity_sold %>
+</p>
+<p>
+  <strong>Quantity Left:</strong>
+  <%= @product.quantity_left %>
+</p>
+<p>
+  <strong>Archieved?</strong>
+  <%= @product.archieved %>
+</p>
