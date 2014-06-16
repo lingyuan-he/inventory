@@ -1,0 +1,24 @@
+<h1>List all Purchases</h1>
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Invoice Number</th>
+    <th>Timestamp</th>
+    <th>Vending Machine</th>
+    <th>Total Amount</th>
+    <th colspan = "3"> </th>
+  </tr>
+ 
+  <% @purchases.each do |purchase| %>
+    <tr>
+      <td><%= purchase.id %></td>
+      <td><%= purchase.invoice_number %></td>
+      <td><%= purchase.created_at %></td>
+      <td><%= purchase.vending_machine %></td>
+      <td><%= purchase.total_amount %></td>
+      <td><%= link_to 'Details', purchase_path(purchase) %></td>
+      <td><%= link_to 'Edit', edit_purchase_path(purchase) %></td>
+      <td><%= link_to 'Destroy', purchase_path(purchase), :method => :delete, :confirm => 'Are you sure?' %></td>
+    </tr>
+  <% end %>
+</table>

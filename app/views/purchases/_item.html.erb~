@@ -1,0 +1,12 @@
+<p>Product Details</p>
+<p>
+  <%= f.label :product %><br>
+  <%= f.collection_select(:product_id, Product.order(:name), :id, :name, {:include_blank => "Please select"}) %>
+</p>
+<p>
+  <%= f.label :quantity %><br>
+  <%= f.text_field :quantity %>
+</p>
+<p>
+  <%= f.label :unit_price %><br>
+  <%= f.text_field :unit_price %>

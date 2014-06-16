@@ -1,9 +1,11 @@
 Inventory::Application.routes.draw do
   resources :products
   
-  resources :manufacturers do
-    resources :products
-  end
+  resources :manufacturers #do
+#    resources :products
+#  end
+  
+  resources :purchases
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

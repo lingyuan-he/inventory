@@ -5,8 +5,8 @@ class CreateManufacturers < ActiveRecord::Migration
       t.string :name
       t.string :address
       t.string :contact_name
-      t.string :contact_phone
-      t.string :contact_email
+      t.string :phone
+      t.string :email
       t.timestamps
     end
   end

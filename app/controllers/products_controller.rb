@@ -37,7 +37,7 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @prodcut = Product.find(params[:id])
+    @product = Product.find(params[:id])
     @product.destroy
     redirect_to products_path
   end

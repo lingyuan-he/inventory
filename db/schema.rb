@@ -11,14 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140611142616) do
+ActiveRecord::Schema.define(:version => 20140616155503) do
+
+  create_table "items", :force => true do |t|
+    t.integer  "purchase_id"
+    t.integer  "product_id"
+    t.integer  "quantity"
+    t.decimal  "unit_price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "manufacturers", :force => true do |t|
     t.string   "name"
     t.string   "address"
     t.string   "contact_name"
-    t.string   "phone"
-    t.string   "email"
+    t.string   "contact_phone"
+    t.string   "contact_email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -30,6 +39,14 @@ ActiveRecord::Schema.define(:version => 20140611142616) do
     t.integer  "quantity_sold"
     t.integer  "quantity_left"
     t.boolean  "archieved"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "purchases", :force => true do |t|
+    t.string   "invoice_number"
+    t.string   "vending_machine"
+    t.decimal  "total_amount"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

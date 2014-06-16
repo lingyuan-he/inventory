@@ -1,0 +1,35 @@
+<h1>Purchase Page</h1>
+<p>
+  <strong>ID:</strong>
+  <%= @purchase.id %>
+</p>
+<p>
+  <strong>Invoice Number:</strong>
+  <%= @purchase.invoice_number %>
+</p>
+<p>
+  <strong>Timestamp:</strong>
+  <%= @purchase.timestamp %>
+</p>
+<p>
+  <strong>Vending Machine</strong>
+  <%= @purchase.vending_machine %>
+<p>
+  <strong>Total Amount:</strong>
+  <%= @purchase.total_amount %>
+</p>
+<h3>Purchase Details</h3>
+<% for @items.each do |f| %>
+  <p>
+    <strong>Product:</strong>
+    <%= Product.find(f.product).name %>
+  </p>
+  <p>
+    <strong>Quantity:</strong>
+    <%= f.quantity %>
+  </p>
+  <p>
+    <strong>Unit Price:</strong>
+    <%= f.unit_price %>
+  </p>
+<% end %>

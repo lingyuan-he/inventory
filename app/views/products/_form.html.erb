@@ -1,4 +1,4 @@
-<%= form_for :product, url: products_path do |f| %>
+<%= form_for @product do |f| %>
   <% if @product.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@product.errors.count, "error") %> prohibited
@@ -24,15 +24,16 @@
   </p>
   <p>
     <%= f.label :quantity_sold %><br>
-    <%= f.text_field(:quantity_sold, :value => "0") %>
+    <%= f.text_field :quantity_sold %>
   </p>
   <p>
     <%= f.label :quantity_left %><br>
-    <%= f.text_field(:quantity_left, :value => "0") %>
+    <%= f.text_field :quantity_left %>
   </p>
   <p>
     <%= f.label :archived %><br>
-    <%= f.select(:archieved, [['Yes', true], ['No', false]]) %>
+    <%= f.select(:archieved, [['No', false], ['Yes', true]]) %>
+  </p>
   <p>
     <%= f.submit %>
   </p>

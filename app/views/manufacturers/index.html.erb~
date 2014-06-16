@@ -21,7 +21,7 @@
       <td><%= manufacturer.email %></td>
       <td><%= link_to 'Details', manufacturer_path(manufacturer) %></td>
       <td><%= link_to 'Edit', edit_manufacturer_path(manufacturer) %></td>
-      <td><%= link_to 'Destroy', manufacturer_path(manufacturer), :method => :delete, :confirm: => 'Are you sure?' %></td>
+      <td><%= link_to 'Destroy', manufacturer_path(manufacturer), :method => :delete, :confirm => 'Are you sure?' %></td>
     </tr>
   <% end %>
 </table>

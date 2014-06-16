@@ -9,7 +9,7 @@ June 10th
 June 11th
 - create Manufacturer model
 - add manufacturers controller
-- edit migrations: create products/create manufacturers
+- edited migrations: create_products/create_manufacturers
 - add views to products: index/show/new/edit
 - add to products controller: index/new/show/create/edit/update/destroy
 - add to manufacturers controller: new/edit
@@ -19,5 +19,16 @@ June 12th
 - add to Manufacturer controllder: index/new/show/create/edit/update/destroy
 - edit Manufacturer model for data validation
 - fix problem: /manufacturers/new not found (form url wrongly directed to [POST] /manufacturers/:id/new, should be [POST] /manufacturers)
-- fix problem: /manufacturer/:id/edit performs create (form_for @manufacturer do |f|, instead of form_for :manufacturer)
+- fix problem: /manufacturer/:id/edit performs create (form_for @manufacturer do |f|, instead of form_for :manufacturer), same for products
+- fix new product page manufacturer drop-down
+- fix typos in controllers and models
 
+June 16th
+- assign dependent: :destroy to manufacturer instead of product
+- create purchase controller
+- create models: Purchase/Item
+- create migrations: create_purchases/create_items
+- add views to purchase: index/new/edit/show
+- change manufacturer migration and reset database
+- add to purchase controller: index/new/show/create/edit/update/destory
+- modify Product model to reflect relation with Item

@@ -1,6 +1,6 @@
 <h1>List all Products</h1>
  
-<table border="2">
+<table border="1">
   <tr>
     <th>ID</th>
     <th>Name</th>
@@ -16,14 +16,14 @@
     <tr>
       <td><%= product.id %></td>
       <td><%= product.name %></td>
-      <td><%= Manufacture.find(product.manufacturer).name %></td>
+
       <td><%= product.description %></td>
       <td><%= product.quantity_sold %></td>
       <td><%= product.quantity_left %></td>
       <td><%= product.archieved %></td>
       <td><%= link_to 'Details', product_path(product) %></td>
       <td><%= link_to 'Edit', edit_product_path(product) %></td>
-      <td><%= link_to 'Destroy', product_path(product), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Destroy', product_path(product), :method => :delete, :confirm => 'Are you sure?' %></td>
     </tr>
   <% end %>
 </table>
