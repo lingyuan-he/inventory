@@ -1,5 +1,9 @@
-<h1>List all Manufacturers</h1>
- 
+<h3><%= link_to 'Manufacturer', controller: 'manufacturers' %>
+<%= link_to 'Product', controller: 'products' %>
+<%= link_to 'Purchase', controller: 'purchases' %><br>
+<%= link_to 'Manager', controller: 'managers' %>
+<%= link_to 'Location', controller: 'locations' %></h3>
+<h3>List all Manufacturers</h3>
 <table border="1">
   <tr>
     <th>ID</th>
@@ -10,7 +14,6 @@
     <th>Contact's Email</th>
     <th colspan = "3"> </th>
   </tr>
- 
   <% @manufacturers.each do |manufacturer| %>
     <tr>
       <td><%= manufacturer.id %></td>

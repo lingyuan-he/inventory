@@ -1,4 +1,8 @@
-<h1>Manufacturer Page</h1>
+<h3><%= link_to 'Manufacturer', controller: 'manufacturers' %>
+<%= link_to 'Product', controller: 'products' %>
+<%= link_to 'Purchase', controller: 'purchases' %>
+<%= link_to 'Manager', controller: 'managers' %></h3>
+<h3>Manufacturer Page</h3>
 <p>
   <strong>ID:</strong>
   <%= @manufacturer.id %>
@@ -17,9 +21,9 @@
 </p>
 <p>
   <strong>Contact's Phone:</strong>
-  <%= @manufacturer.phone %>
+  <%= @manufacturer.contact_phone %>
 </p>
 <p>
   <strong>Contact's Email:</strong>
-  <%= @manufacturer.email %>
+  <%= @manufacturer.contact_email %>
 </p>

@@ -1,9 +1,7 @@
 Inventory::Application.routes.draw do
   resources :products
   
-  resources :manufacturers #do
-#    resources :products
-#  end
+  resources :manufacturers
   
   resources :purchases
 

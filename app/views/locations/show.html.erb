@@ -3,28 +3,24 @@
 <%= link_to 'Purchase', controller: 'purchases' %><br>
 <%= link_to 'Manager', controller: 'managers' %>
 <%= link_to 'Location', controller: 'locations' %></h3>
-<h3>Manufacturer Page</h3>
+<h3>Location Page</h3>
 <p>
   <strong>ID:</strong>
-  <%= @manufacturer.id %>
+  <%= @location.id %>
 </p>
 <p>
   <strong>Name:</strong>
-  <%= @manufacturer.name %>
+  <%= @location.name %>
 </p>
 <p>
   <strong>Address:</strong>
-  <%= @manufacturer.address %>
+  <%= @location.address %>
 </p>
 <p>
-  <strong>Contact's Name:</strong>
-  <%= @manufacturer.contact_name %>
+  <strong>Manager:</strong>
+  <%= @manager %>
 </p>
 <p>
-  <strong>Contact's Phone:</strong>
-  <%= @manufacturer.contact_phone %>
-</p>
-<p>
-  <strong>Contact's Email:</strong>
-  <%= @manufacturer.contact_email %>
+  <strong>Note:</strong>
+  <%= @location.note %>
 </p>

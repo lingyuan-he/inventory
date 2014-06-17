@@ -1,0 +1,6 @@
+<h3><%= link_to 'Manufacturer', controller: 'manufacturers' %>
+<%= link_to 'Product', controller: 'products' %>
+<%= link_to 'Purchase', controller: 'purchases' %>
+<%= link_to 'Manager', controller: 'managers' %></h3>
+<h3>Add New Manufacturer</h3>
+<%= render 'form' %>

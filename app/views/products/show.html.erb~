@@ -1,11 +1,15 @@
-<h1>Product Page</h1>
+<h3><%= link_to 'Manufacturer', controller: 'manufacturers' %>
+<%= link_to 'Product', controller: 'products' %>
+<%= link_to 'Purchase', controller: 'purchases' %>
+<%= link_to 'Manager', controller: 'managers' %></h3>
+<h3>Product Page</h3>
 <p>
   <strong>ID:</strong>
   <%= @product.id %>
 </p>
 <p>
   <strong>Name:</strong>
-  <%= @product.title %>
+  <%= @product.name %>
 </p>
 <p>
   <strong>Manufacturer:</strong>

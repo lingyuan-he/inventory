@@ -1,4 +1,9 @@
-<h1>Purchase Page</h1>
+<<h3><%= link_to 'Manufacturer', controller: 'manufacturers' %>
+<%= link_to 'Product', controller: 'products' %>
+<%= link_to 'Purchase', controller: 'purchases' %><br>
+<%= link_to 'Manager', controller: 'managers' %>
+<%= link_to 'Location', controller: 'locations' %></h3>
+<h3>Purchase Page</h3>
 <p>
   <strong>ID:</strong>
   <%= @purchase.id %>
@@ -14,11 +19,12 @@
 <p>
   <strong>Vending Machine</strong>
   <%= @purchase.vending_machine %>
+</p>
 <p>
   <strong>Total Amount:</strong>
   <%= @purchase.total_amount %>
 </p>
-<h3>Purchase Details</h3>
+<h4>Purchase Details</h4>
 <% @items.each do |f| %>
   <p>
     <strong>Product:</strong>
