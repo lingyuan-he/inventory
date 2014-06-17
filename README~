@@ -5,6 +5,7 @@ Created June 10th 2014
 June 10th
 - add products controller
 - create Product model
+- add routes: products/manufacturers
 
 June 11th
 - create Manufacturer model
@@ -40,3 +41,8 @@ June 17th
 - fix :reject_if for Purchase model nested_attributes (check correct column name)
 - fix edition saving problem in  products/manufacturers/purchases controllers (use update_attributes instead of update)
 - allow item remove in purchase
+- add one more available item field when editing purchase
+- add managers controller
+- add Manager model
+- add routes managers
+- add to staff controller: index/new/show/create/edit/update/destory
