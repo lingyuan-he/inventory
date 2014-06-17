@@ -1,4 +1,4 @@
-<p>Product Details</p>
+<h3>Product Details <%= @i %></h3>
 <p>
   <%= f.label :product %><br>
   <%= f.collection_select(:product_id, Product.order(:name), :id, :name, {:include_blank => "Please select"}) %>
@@ -10,3 +10,8 @@
 <p>
   <%= f.label :unit_price %><br>
   <%= f.text_field :unit_price %>
+</p>
+<p>
+  <%= f.check_box :_destroy %>
+  <%= f.label :_destroy, "Remove Product" %>
+ </p>

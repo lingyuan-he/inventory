@@ -11,8 +11,7 @@ class ProductsController < ApplicationController
 	
 	def show
 		@product = Product.find(params[:id])
-		@man_id = @product.manufacturer
-		@manufacturer = Manufacturer.find(@man_id).name
+		@manufacturer = Manufacturer.find(@product.manufacturer).name
 	end
 	
   def create

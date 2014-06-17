@@ -23,12 +23,10 @@ class ManufacturersController < ApplicationController
   
   def edit
     @manufacturer = Manufacturer.find(params[:id])
-    puts @manufacturer
   end
 
   def update
     @manufacturer = Manufacturer.find(params[:id])
-    puts @manufacturer
     if @manufacturer.save(params[:manufacturer])
       redirect_to @manufacturer
     else

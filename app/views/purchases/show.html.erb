@@ -19,10 +19,10 @@
   <%= @purchase.total_amount %>
 </p>
 <h3>Purchase Details</h3>
-<% for @items.each do |f| %>
+<% @items.each do |f| %>
   <p>
     <strong>Product:</strong>
-    <%= Product.find(f.product).name %>
+    <%= Product.find(f.product_id).name %>
   </p>
   <p>
     <strong>Quantity:</strong>

@@ -1,4 +1,6 @@
 class Item < ActiveRecord::Base
   belongs_to :purchase
-  has_many :products
+  has_one :product
+  validates :quantity, presence: true
+  validates :unit_price, presence: true
 end

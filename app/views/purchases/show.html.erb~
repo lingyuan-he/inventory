@@ -9,7 +9,7 @@
 </p>
 <p>
   <strong>Timestamp:</strong>
-  <%= @purchase.timestamp %>
+  <%= @purchase.created_at %>
 </p>
 <p>
   <strong>Vending Machine</strong>
@@ -22,7 +22,7 @@
 <% for @items.each do |f| %>
   <p>
     <strong>Product:</strong>
-    <%= Product.find(f.product).name %>
+    <%= Product.find(f.product_id).name %>
   </p>
   <p>
     <strong>Quantity:</strong>

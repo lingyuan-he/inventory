@@ -11,7 +11,7 @@ class PurchasesController < ApplicationController
   
   def show
     @purchase = Purchase.find(params[:id])
-    @items = Item.find(:all, :conditions => { :purchase => @purchase.id })
+    @items = Item.find(:all, :conditions => { :purchase_id => @purchase.id })
   end
   
   def create
@@ -25,11 +25,12 @@ class PurchasesController < ApplicationController
   
   def edit
     @purchase = Purchase.find(params[:id])
+    1.times { @purchase.items.build }
   end
 
   def update
     @purchase = Purchase.find(params[:id])   
-    if @purchase.save(params[:purchase])
+    if @purchase.update_attributes(params[:purchase])
       redirect_to @purchase
     else
       render 'edit'
