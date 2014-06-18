@@ -1,0 +1,40 @@
+<%= form_for @restock do |f| %>
+  <% if @restock.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@restock.errors.count, "error") %> prohibited
+        this restock from being saved:</h2>
+      <ul>
+      <% @restock.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+    <%= f.label :product %><br>
+    <%= f.collection_select(:product_id, Product.order(:name), :id, :name, {:include_blank => "Please select"}) %>
+  </p>
+  <p>
+    <%= f.label :location %><br>
+    <%= f.collection_select(:location_id, Location.order(:name), :id, :name, {:include_blank => "Please select"}) %>
+  </p>
+  <p>
+    <%= f.label :quantity %><br>
+    <%= f.text_field :quantity %>
+  </p>
+  <p>
+    <%= f.label :unit_cost %><br>
+    <%= f.text_field :unit_cost %>
+  </p>
+  <p>
+    <%= f.label :restock_staff %><br>
+    <%= f.collection_select(:restock_staff_id, Employee.order(:name), :id, :name, {:include_blank => "Please select"}) %>
+  </p>
+  <p>
+    <%= f.label :note %><br>
+    <%= f.text_area :note %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

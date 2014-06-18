@@ -1,0 +1,29 @@
+<h3><%= link_to 'Manufacturer', controller: 'manufacturers' %>
+<%= link_to 'Product', controller: 'products' %>
+<%= link_to 'Purchase', controller: 'purchases' %>
+<%= link_to 'Employee', controller: 'employees' %>
+<%= link_to 'Location', controller: 'locations' %>
+<%= link_to 'Stock', controller: 'stocks' %></h3>
+<h3>List all Stocks</h3>
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Product</th>
+    <th>Location</th>
+    <th>Quantity Left</th>
+    <th>Alarm Threshold</th>
+    <th colspan = "3"> </th>
+  </tr>
+  <% @stocks.each do |stock| %>
+    <tr>
+      <td><%= stock.id %></td>
+      <td><%= Product.find(stock.product_id).name %></td>
+      <td><%= Location.find(stock.location_id).name %></td>
+      <td><%= stock.quantity_left %></td>
+      <td><%= stock.alarm_threshold %></td>
+      <td><%= link_to 'Details', stock_path(stock) %></td>
+      <td><%= link_to 'Edit', edit_stock_path(stock) %></td>
+      <td><%= link_to 'Destroy', stock_path(stock), :method => :delete, :confirm => 'Are you sure?' %></td>
+    </tr>
+  <% end %>
+</table>

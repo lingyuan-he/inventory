@@ -1,0 +1,32 @@
+<%= form_for @stock do |f| %>
+  <% if @stock.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@stock.errors.count, "error") %> prohibited
+        this stock from being saved:</h2>
+      <ul>
+      <% @stock.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+    <%= f.label :product %><br>
+    <%= f.collection_select(:product_id, Product.order(:name), :id, :name, {:include_blank => "Please select"}) %>
+  </p>
+  <p>
+    <%= f.label :location %><br>
+    <%= f.collection_select(:location_id, Location.order(:name), :id, :name, {:include_blank => "Please select"}) %>
+  </p>
+  <p>
+    <%= f.label :quantity_left %><br>
+    <%= f.text_field :quantity_left %>
+  </p>
+  <p>
+    <%= f.label :alarm_threshold %><br>
+    <%= f.text_field :alarm_threshold %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

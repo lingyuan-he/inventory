@@ -5,9 +5,13 @@ Inventory::Application.routes.draw do
   
   resources :purchases
 
-  resources :managers
+  resources :employees
   
   resources :locations
+  
+  resources :stocks
+  
+  resorcess :restocks
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -2,7 +2,8 @@
 <%= link_to 'Product', controller: 'products' %>
 <%= link_to 'Purchase', controller: 'purchases' %>
 <%= link_to 'Employee', controller: 'employees' %>
-<%= link_to 'Location', controller: 'locations' %></h3>
+<%= link_to 'Location', controller: 'locations' %>
+<%= link_to 'Stock', controller: 'stocks' %></h3>
 <h3>List all Locations</h3>
 <table border="1">
   <tr>
@@ -18,7 +19,7 @@
       <td><%= location.id %></td>
       <td><%= location.name %></td>
       <td><%= location.address %></td>
-      <td><%= Manager.find(location.manager_id).name %></td>
+      <td><%= Employee.find(location.manager_id).name %></td>
       <td><%= location.note %></td>
       <td><%= link_to 'Details', location_path(location) %></td>
       <td><%= link_to 'Edit', edit_location_path(location) %></td>

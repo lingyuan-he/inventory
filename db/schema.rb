@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140618141514) do
+ActiveRecord::Schema.define(:version => 20140618182802) do
 
   create_table "employees", :force => true do |t|
     t.string   "name"
@@ -65,6 +65,26 @@ ActiveRecord::Schema.define(:version => 20140618141514) do
     t.string   "invoice_number"
     t.string   "vending_machine"
     t.decimal  "total_amount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "restocks", :force => true do |t|
+    t.integer  "product_id"
+    t.integer  "location_id"
+    t.integer  "quantity"
+    t.decimal  "unit_cost"
+    t.integer  "restock_staff_id"
+    t.text     "note"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "stocks", :force => true do |t|
+    t.integer  "product_id"
+    t.integer  "location_id"
+    t.integer  "quantity_left"
+    t.integer  "alarm_threshold"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

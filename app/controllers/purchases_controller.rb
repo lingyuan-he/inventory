@@ -25,7 +25,7 @@ class PurchasesController < ApplicationController
   
   def edit
     @purchase = Purchase.find(params[:id])
-    1.times { @purchase.items.build }
+    @purchase.items.build
   end
 
   def update

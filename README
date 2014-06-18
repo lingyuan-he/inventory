@@ -50,5 +50,13 @@ June 17th
 - add views to managers/locations: index/new/edit/show
 
 June 18th
-- create stocks controller
-- create Stock model
+- design change: manager table now become employee, recreate m/v/c for employees and revisit m/v/c for locations
+- create controller stocks/restocks
+- create model Stock/Restock
+- add routes stocks/restocks
+- edit migration create stocks
+- add to stocks/restocks controller: index/new/show/create/edit/update/destory
+- add views to stocks/restock: index/new/edit/show
+- add validations to Stock/Restock model
+- add header and main navigation to all pages
+- edit Product/Employee model to reflect relationships

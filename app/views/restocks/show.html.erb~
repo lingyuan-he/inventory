@@ -1,0 +1,40 @@
+<h2>Inventory Management System</h2>
+<h3><%= link_to 'Manufacturer', controller: 'manufacturers' %>
+<%= link_to 'Product', controller: 'products' %>
+<%= link_to 'Purchase', controller: 'purchases' %>
+<%= link_to 'Employee', controller: 'employees' %>
+<%= link_to 'Location', controller: 'locations' %>
+<%= link_to 'Stock', controller: 'stocks' %>
+<%= link_to 'Restock', controller: 'restocks' %></h3>
+<h3>Restock Page</h3>
+<p>
+  <strong>ID:</strong>
+  <%= @stock.id %>
+</p>
+<p>
+  <strong>Timestamp:</strong>
+  <%= @restock.created_at %>
+<p>
+  <strong>Product:</strong>
+  <%= @product %>
+</p>
+<p>
+  <strong>Location:</strong>
+  <%= @location %>
+</p>
+<p>
+  <strong>Quantity:</strong>
+  <%= @restock.quantity %>
+</p>
+<p>
+  <strong>Unit Cost:</strong>
+  <%= @restock.unit_cost %>
+</p>
+<p>
+  <strong>Restock Staff:</strong>
+  <%= @staff %>
+</p>
+<p>
+  <strong>Note:</strong>
+  <%= @restock.note%>
+</p>

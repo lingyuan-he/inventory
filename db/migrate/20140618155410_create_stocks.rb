@@ -1,0 +1,12 @@
+class CreateStocks < ActiveRecord::Migration
+  def change
+    create_table :stocks do |t|
+      t.primary_key :id
+      t.references :product
+      t.references :location
+      t.integer :quantity_left
+      t.integer :alarm_threshold
+      t.timestamps
+    end
+  end
+end

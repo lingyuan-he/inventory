@@ -2,7 +2,8 @@
 <%= link_to 'Product', controller: 'products' %>
 <%= link_to 'Purchase', controller: 'purchases' %>
 <%= link_to 'Employee', controller: 'employees' %>
-<%= link_to 'Location', controller: 'locations' %></h3>
+<%= link_to 'Location', controller: 'locations' %>
+<%= link_to 'Stock', controller: 'stocks' %></h3>
 <h3>Location Page</h3>
 <p>
   <strong>ID:</strong>
