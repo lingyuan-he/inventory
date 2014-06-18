@@ -49,3 +49,6 @@ June 17th
 - add to managers/locations controller: index/new/show/create/edit/update/destory
 - add views to managers/locations: index/new/edit/show
 
+June 18th
+- create stocks controller
+- create Stock model

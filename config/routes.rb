@@ -5,7 +5,7 @@ Inventory::Application.routes.draw do
   
   resources :purchases
 
-  resources :managers
+  resources :employees
   
   resources :locations
   

@@ -6,12 +6,12 @@ class LocationsController < ApplicationController
   
 	def new
 		@location = Location.new
-		@managers = Manager.all
+		@employees = Employee.all
 	end
 	
 	def show
 		@location = Location.find(params[:id])
-		@manager = Manager.find(@location.manager).name
+		@manager = Employee.find(@location.manager_ID).name
 	end
 	
   def create

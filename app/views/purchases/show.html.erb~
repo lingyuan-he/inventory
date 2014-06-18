@@ -1,4 +1,4 @@
-<<h3><%= link_to 'Manufacturer', controller: 'manufacturers' %>
+<h3><%= link_to 'Manufacturer', controller: 'manufacturers' %>
 <%= link_to 'Product', controller: 'products' %>
 <%= link_to 'Purchase', controller: 'purchases' %><br>
 <%= link_to 'Manager', controller: 'managers' %>

@@ -1,21 +1,26 @@
 <h3><%= link_to 'Manufacturer', controller: 'manufacturers' %>
 <%= link_to 'Product', controller: 'products' %>
 <%= link_to 'Purchase', controller: 'purchases' %>
-<%= link_to 'Manager', controller: 'managers' %></h3>
-<h3>Manager Page</h3>
+<%= link_to 'Employee', controller: 'employees' %>
+<%= link_to 'Location', controller: 'locations' %></h3>
+<h3>Employee Page</h3>
 <p>
   <strong>ID:</strong>
-  <%= @manager.id %>
+  <%= @employee.id %>
 </p>
 <p>
   <strong>Name:</strong>
-  <%= @manager.name %>
+  <%= @employee.name %>
+</p>
+<p>
+  <strong>Role:</strong>
+  <%= @employee.role %>
 </p>
 <p>
   <strong>Phone:</strong>
-  <%= @manager.phone %>
+  <%= @employee.phone %>
 </p>
 <p>
   <strong>Email:</strong>
-  <%= @manager.email %>
+  <%= @employee.email %>
 </p>

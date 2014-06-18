@@ -1,8 +1,9 @@
-class CreateManagers < ActiveRecord::Migration
+class CreateEmployees < ActiveRecord::Migration
   def change
-    create_table :managers do |t|
+    create_table :employees do |t|
       t.primary_key :id
       t.string :name
+      t.string :role
       t.string :phone
       t.string :email
       t.timestamps

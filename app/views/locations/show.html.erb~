@@ -1,34 +1,26 @@
 <h3><%= link_to 'Manufacturer', controller: 'manufacturers' %>
 <%= link_to 'Product', controller: 'products' %>
-<%= link_to 'Purchase', controller: 'purchases' %><br>
-<%= link_to 'Manager', controller: 'managers' %>
+<%= link_to 'Purchase', controller: 'purchases' %>
+<%= link_to 'Employee', controller: 'employees' %>
 <%= link_to 'Location', controller: 'locations' %></h3>
-<h3>Product Page</h3>
+<h3>Location Page</h3>
 <p>
   <strong>ID:</strong>
-  <%= @product.id %>
+  <%= @location.id %>
 </p>
 <p>
   <strong>Name:</strong>
-  <%= @product.name %>
+  <%= @location.name %>
 </p>
 <p>
-  <strong>Manufacturer:</strong>
-  <%= @manufacturer %>
+  <strong>Address:</strong>
+  <%= @location.address %>
 </p>
 <p>
-  <strong>Description:</strong>
-  <%= @product.description %>
+  <strong>Manager:</strong>
+  <%= @manager %>
 </p>
 <p>
-  <strong>Quantity Sold:</strong>
-  <%= @product.quantity_sold %>
-</p>
-<p>
-  <strong>Quantity Left:</strong>
-  <%= @product.quantity_left %>
-</p>
-<p>
-  <strong>Archieved?</strong>
-  <%= @product.archieved %>
+  <strong>Note:</strong>
+  <%= @location.note %>
 </p>

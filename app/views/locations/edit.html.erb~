@@ -3,5 +3,5 @@
 <%= link_to 'Purchase', controller: 'purchases' %><br>
 <%= link_to 'Manager', controller: 'managers' %>
 <%= link_to 'Location', controller: 'locations' %></h3>
-<h3> Edit Manager </h3>
+<h3> Edit Location </h3>
 <%= render 'form' %>

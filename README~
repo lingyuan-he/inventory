@@ -43,7 +43,7 @@ June 17th
 - allow item remove in purchase
 - add one more available item field when editing purchase
 - create managers/locations controller
-- create Manager/Location model
+- create Manager/Location model and add validations
 - edit migration: create managers/locations
 - add routes: managers/locations
 - add to managers/locations controller: index/new/show/create/edit/update/destory

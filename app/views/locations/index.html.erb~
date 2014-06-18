@@ -1,32 +1,28 @@
 <h3><%= link_to 'Manufacturer', controller: 'manufacturers' %>
 <%= link_to 'Product', controller: 'products' %>
-<%= link_to 'Purchase', controller: 'purchases' %><br>
-<%= link_to 'Manager', controller: 'managers' %>
+<%= link_to 'Purchase', controller: 'purchases' %>
+<%= link_to 'Employee', controller: 'employees' %>
 <%= link_to 'Location', controller: 'locations' %></h3>
-<h3>List all Products</h3>
+<h3>List all Locations</h3>
 <table border="1">
   <tr>
     <th>ID</th>
     <th>Name</th>
-    <th>Manufacturer</th>
-    <th>Description</th>
-    <th>Quantity Sold</th>
-    <th>Quantity Left</th>
-    <th>Archieved</th>
+    <th>Address</th>
+    <th>Manager</th>
+    <th>Note</th>
     <th colspan = "3"> </th>
   </tr>
-  <% @products.each do |product| %>
+  <% @locations.each do |location| %>
     <tr>
-      <td><%= product.id %></td>
-      <td><%= product.name %></td>
-      <td><%= Manufacturer.find(product.manufacturer).name %></td>
-      <td><%= product.description %></td>
-      <td><%= product.quantity_sold %></td>
-      <td><%= product.quantity_left %></td>
-      <td><%= product.archieved %></td>
-      <td><%= link_to 'Details', product_path(product) %></td>
-      <td><%= link_to 'Edit', edit_product_path(product) %></td>
-      <td><%= link_to 'Destroy', product_path(product), :method => :delete, :confirm => 'Are you sure?' %></td>
+      <td><%= location.id %></td>
+      <td><%= location.name %></td>
+      <td><%= location.address %></td>
+      <td><%= Manager.find(location.manager_id).name %></td>
+      <td><%= location.note %></td>
+      <td><%= link_to 'Details', location_path(location) %></td>
+      <td><%= link_to 'Edit', edit_location_path(location) %></td>
+      <td><%= link_to 'Destroy', location_path(location), :method => :delete, :confirm => 'Are you sure?' %></td>
     </tr>
   <% end %>
 </table>
