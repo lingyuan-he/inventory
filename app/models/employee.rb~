@@ -1,7 +1,8 @@
 class Employee < ActiveRecord::Base
   has_one :location
+  validates_uniqueness_of :name, :message => "already exists in the database"
   validates :name, presence: true
-  validates :phone, presence: true
   validates :role, presence: true
-  validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/ }
+  validates :phone, :format => { :with => /\d{3}-\d{3}-\d{4}/, :message => "format invalid, example: 000-000-0000" }
+  validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/, :message => "format invalid, example: jdoe@vengolabs.com" }
 end

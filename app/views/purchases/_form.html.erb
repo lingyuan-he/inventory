@@ -18,10 +18,10 @@
     <%= f.label :vending_machine %><br>
     <%= f.text_field :vending_machine %>
   </p>
-  <p>
+  <!--<p>
     <%= f.label :total_amount %><br>
     <%= f.text_field :total_amount %>
-  </p>
+  </p>!-->
   <%= f.fields_for :items do |builder| %>
     <%= render "item", :f => builder %>
   <% end %>

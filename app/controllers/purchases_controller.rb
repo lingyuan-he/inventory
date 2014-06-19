@@ -16,6 +16,11 @@ class PurchasesController < ApplicationController
   
   def create
     @purchase = Purchase.new(params[:purchase])
+    @total = 0
+    @purchase.items.each do |item|
+      @total = @total + item.quantity * item.unit_price
+    end
+    @purchase.total_amount = @total
     if @purchase.save
       redirect_to @purchase
     else
@@ -29,8 +34,13 @@ class PurchasesController < ApplicationController
   end
 
   def update
-    @purchase = Purchase.find(params[:id])   
+    @purchase = Purchase.find(params[:id])  
     if @purchase.update_attributes(params[:purchase])
+      @total = 0
+      @purchase.items.each do |item|
+        @total = @total + item.quantity * item.unit_price
+      end
+      @purchase.update_attribute(:total_amount,@total)
       redirect_to @purchase
     else
       render 'edit'

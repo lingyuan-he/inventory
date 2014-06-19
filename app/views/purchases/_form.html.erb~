@@ -20,7 +20,7 @@
   </p>
   <p>
     <%= f.label :total_amount %><br>
-    <%= f.text_afield :total_amount %>
+    <%= f.text_field :total_amount %>
   </p>
   <%= f.fields_for :items do |builder| %>
     <%= render "item", :f => builder %>

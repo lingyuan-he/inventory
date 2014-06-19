@@ -6,7 +6,6 @@ class StocksController < ApplicationController
   
 	def new
 		@stock = Stock.new
-		@locations = Location.all
 	end
 	
 	def show
@@ -15,12 +14,32 @@ class StocksController < ApplicationController
 		@location = Location.find(@stock.location_id).name
 	end
 	
+  #def create
+  #  @stock = Stock.new(params[:stock])
+  #  if @stock.save
+  #    redirect_to @stock
+  #  else
+  #    render 'new'
+  #  end
+  #end
+  
   def create
     @stock = Stock.new(params[:stock])
-    if @stock.save
-      redirect_to @stock
-    else
-      render 'new'
+    @flag = 0
+    @same_product = Stock.find_all_by_product_id(@stock.product_id)
+    @same_product.each do |record|
+      if record.location_id == @stock.location_id
+        flash.now[:notice] = 'You cannot have duplicate record with same product-location combination!'
+        @flag = 1
+        render 'new'
+      end
+    end
+    if @flag == 0 
+      if @stock.save
+        redirect_to @stock
+      else
+        render 'new'
+      end
     end
   end
   

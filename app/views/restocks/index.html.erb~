@@ -22,7 +22,7 @@
   <% @restocks.each do |restock| %>
     <tr>
       <td><%= restock.id %></td>
-      <td><%= restock.created_at %>
+      <td><%= restock.created_at %></td>
       <td><%= Product.find(restock.product_id).name %></td>
       <td><%= Location.find(restock.location_id).name %></td>
       <td><%= restock.quantity %></td>

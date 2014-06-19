@@ -18,6 +18,8 @@ class RestocksController < ApplicationController
   def create
     @restock = Restock.new(params[:restock])
     if @restock.save
+      @stock = Stock.find_by_product_id_and_location_id(@restock.product_id,@restock.location_id)
+      @stock.update_attribute(:quantity_left,@stock.quantity_left + @restock.quantity)
       redirect_to @restock
     else
       render 'new'
@@ -29,8 +31,11 @@ class RestocksController < ApplicationController
   end
 
   def update
-    @restock = Restock.find(params[:id])   
+    @restock = Restock.find(params[:id])
+    @stock = Stock.find_by_product_id_and_location_id(@restock.product_id,@restock.location_id)
+    @new_quantity = @stock.quantity_left - @restock.quantity + params[:restock][:quantity].to_i
     if @restock.update_attributes(params[:restock])
+      @stock.update_attribute(:quantity_left,@new_quantity)
       redirect_to @restock
     else
       render 'edit'
@@ -39,6 +44,8 @@ class RestocksController < ApplicationController
 
   def destroy
     @restock = Restock.find(params[:id])
+    @stock = Stock.find_by_product_id_and_location_id(@restock.product_id,@restock.location_id)
+    @stock.update_attribute(:quantity_left,@stock.quantity_left - @restock.quantity)
     @restock.destroy
     redirect_to restocks_path
   end

@@ -60,3 +60,18 @@ June 18th
 - add validations to Stock/Restock model
 - add header and main navigation to all pages
 - edit Product/Employee model to reflect relationships
+- add to 'Add XXX' links to each index page
+
+June 19th
+- add validation to stock to prevent duplicate product-location combination
+- simplify validations in Stock/Item/Product/Purchase/Restock
+- add validation of employee/manufacturer/product/location name uniqueness, purchase invoice number uniqueness
+- add validation for all drop-downs to prevent crashes
+- when create/edit/remove restock, stock will be modified
+- total amount is calculated automatically when create/update purchase
+
+To-dos
+- validate product-location combination in restock with stock table
+- product -> quantity left should be calculated automatically
+- add vending machine page so we can associate vm with stocking location
+- add unit price to product model
