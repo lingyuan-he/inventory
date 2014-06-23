@@ -1,0 +1,33 @@
+<h2>Inventory Management System</h2>
+<h3><%= link_to 'Manufacturer', controller: 'manufacturers' %>
+<%= link_to 'Product', controller: 'products' %>
+<%= link_to 'Purchase', controller: 'purchases' %>
+<%= link_to 'Employee', controller: 'employees' %>
+<%= link_to 'Location', controller: 'locations' %>
+<%= link_to 'Stock', controller: 'stocks' %>
+<%= link_to 'Restock', controller: 'restocks' %>
+<%= link_to 'Vending Machine', controller: 'vending_machines' %></h3>
+<h3>List all Vending Machines</h3>
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Stock Location</th>
+    <th>Note</th>
+    <th colspan = "3"> </th>
+  </tr>
+  <% @vms.each do |vm| %>
+    <tr>
+      <td><%= vm.id %></td>
+      <td><%= vm.name %></td>
+      <td><%= vm.address %></td>
+      <td><%= Location.find(vm.stock_location_id).name %></td>
+      <td><%= vm.note %></td>
+      <td><%= link_to 'Details', vending_machine_path(vm) %></td>
+      <td><%= link_to 'Edit', edit_vending_machine_path(vm) %></td>
+      <td><%= link_to 'Destroy', vending_machine_path(vm), :method => :delete, :confirm => 'Are you sure?' %></td>
+    </tr>
+  <% end %>
+</table>
+<p><%= link_to  'Add Vending Machine', new_vending_machine_path() %></p>

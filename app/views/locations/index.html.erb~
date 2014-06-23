@@ -21,7 +21,7 @@
       <td><%= location.id %></td>
       <td><%= location.name %></td>
       <td><%= location.address %></td>
-      
+      <td><%= Employee.find(location.manager_id).name %></td>
       <td><%= location.note %></td>
       <td><%= link_to 'Details', location_path(location) %></td>
       <td><%= link_to 'Edit', edit_location_path(location) %></td>

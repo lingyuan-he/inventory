@@ -23,6 +23,10 @@
     <%= f.text_area :description %>
   </p>
   <p>
+    <%= f.label :unit_price %><br>
+    <%= f.text_area :unit_price %>
+  </p>
+  <p>
     <%= f.label :quantity_sold %><br>
     <%= f.text_field :quantity_sold %>
   </p>
@@ -34,5 +38,7 @@
     <%= f.label :archived %><br>
     <%= f.select(:archieved, [['No', false], ['Yes', true]]) %>
   </p>
+  <p>
     <%= f.submit %>
+  </p>
 <% end %>

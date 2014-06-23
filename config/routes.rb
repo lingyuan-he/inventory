@@ -13,6 +13,8 @@ Inventory::Application.routes.draw do
   
   resources :restocks
   
+  resources :vending_machines
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

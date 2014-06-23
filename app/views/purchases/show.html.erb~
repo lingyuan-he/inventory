@@ -1,9 +1,12 @@
+<h2>Inventory Management System</h2>
 <h3><%= link_to 'Manufacturer', controller: 'manufacturers' %>
 <%= link_to 'Product', controller: 'products' %>
 <%= link_to 'Purchase', controller: 'purchases' %>
 <%= link_to 'Employee', controller: 'employees' %>
 <%= link_to 'Location', controller: 'locations' %>
-<%= link_to 'Stock', controller: 'stocks' %></h3>
+<%= link_to 'Stock', controller: 'stocks' %>
+<%= link_to 'Restock', controller: 'restocks' %>
+<%= link_to 'Vending Machine', controller: 'vending_machines' %></h3>
 <h3>Purchase Page</h3>
 <p>
   <strong>ID:</strong>
@@ -34,9 +37,5 @@
   <p>
     <strong>Quantity:</strong>
     <%= f.quantity %>
-  </p>
-  <p>
-    <strong>Unit Price:</strong>
-    <%= f.unit_price %>
   </p>
 <% end %>

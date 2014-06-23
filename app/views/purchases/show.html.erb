@@ -5,7 +5,8 @@
 <%= link_to 'Employee', controller: 'employees' %>
 <%= link_to 'Location', controller: 'locations' %>
 <%= link_to 'Stock', controller: 'stocks' %>
-<%= link_to 'Restock', controller: 'restocks' %></h3>
+<%= link_to 'Restock', controller: 'restocks' %>
+<%= link_to 'Vending Machine', controller: 'vending_machines' %></h3>
 <h3>Purchase Page</h3>
 <p>
   <strong>ID:</strong>
@@ -21,7 +22,7 @@
 </p>
 <p>
   <strong>Vending Machine:</strong>
-  <%= @purchase.vending_machine %>
+  <%= VendingMachine.find(@purchase.vending_machine_id).name %>
 </p>
 <p>
   <strong>Total Amount:</strong>
@@ -36,9 +37,5 @@
   <p>
     <strong>Quantity:</strong>
     <%= f.quantity %>
-  </p>
-  <p>
-    <strong>Unit Price:</strong>
-    <%= f.unit_price %>
   </p>
 <% end %>

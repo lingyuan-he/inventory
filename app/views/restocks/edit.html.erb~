@@ -1,3 +1,4 @@
+<h2>Inventory Management System</h2>
 <h3><%= link_to 'Manufacturer', controller: 'manufacturers' %>
 <%= link_to 'Product', controller: 'products' %>
 <%= link_to 'Purchase', controller: 'purchases' %>

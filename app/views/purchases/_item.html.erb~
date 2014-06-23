@@ -1,4 +1,4 @@
-<h3>Product Details <%= @i %></h3>
+<h3>Product Details</h3>
 <p>
   <%= f.label :product %><br>
   <%= f.collection_select(:product_id, Product.order(:name), :id, :name, {:include_blank => "Please select"}) %>

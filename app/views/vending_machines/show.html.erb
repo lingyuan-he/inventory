@@ -1,0 +1,29 @@
+<h2>Inventory Management System</h2>
+<h3><%= link_to 'Manufacturer', controller: 'manufacturers' %>
+<%= link_to 'Product', controller: 'products' %>
+<%= link_to 'Purchase', controller: 'purchases' %>
+<%= link_to 'Employee', controller: 'employees' %>
+<%= link_to 'Location', controller: 'locations' %>
+<%= link_to 'Stock', controller: 'stocks' %>
+<%= link_to 'Restock', controller: 'restocks' %>
+<%= link_to 'Vending Machine', controller: 'vending_machines' %></h3>
+<h3>Vending Machine Page</h3>
+<p>
+  <strong>ID:</strong>
+  <%= @vm.id %>
+</p>
+<p>
+  <strong>Name:</strong>
+  <%= @vm.name %>
+<p>
+  <strong>Address:</strong>
+  <%= @vm.address %>
+</p>
+<p>
+  <strong>Stock Location:</strong>
+  <%= @location %>
+</p>
+<p>
+  <strong>Note:</strong>
+  <%= @vm.note %>
+</p>

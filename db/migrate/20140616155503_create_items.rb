@@ -4,7 +4,6 @@ class CreateItems < ActiveRecord::Migration
       t.references :purchase  
       t.references :product
       t.integer :quantity
-      t.decimal :unit_price
       t.timestamps
     end
   end

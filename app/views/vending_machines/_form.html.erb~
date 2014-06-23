@@ -1,0 +1,28 @@
+<%= form_for @vm do |f| %>
+  <% if @vm.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vm.errors.count, "error") %> prohibited
+        this vending machine from being saved:</h2>
+      <ul>
+      <% @vm.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </p>
+  <p>
+    <%= f.label :stock_location %><br>
+    <%= f.collection_select(:stock_location_id, Location.order(:name), :id, :name, {:include_blank => "Please select"}) %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140618182802) do
+ActiveRecord::Schema.define(:version => 20140623183834) do
 
   create_table "employees", :force => true do |t|
     t.string   "name"
@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(:version => 20140618182802) do
     t.integer  "purchase_id"
     t.integer  "product_id"
     t.integer  "quantity"
-    t.decimal  "unit_price"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -54,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20140618182802) do
     t.string   "name"
     t.integer  "manufacturer_id"
     t.text     "description"
+    t.decimal  "unit_price"
     t.integer  "quantity_sold"
     t.integer  "quantity_left"
     t.boolean  "archieved"
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(:version => 20140618182802) do
 
   create_table "purchases", :force => true do |t|
     t.string   "invoice_number"
-    t.string   "vending_machine"
+    t.integer  "vending_machine_id"
     t.decimal  "total_amount"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -85,6 +85,15 @@ ActiveRecord::Schema.define(:version => 20140618182802) do
     t.integer  "location_id"
     t.integer  "quantity_left"
     t.integer  "alarm_threshold"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "vending_machines", :force => true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.integer  "stock_location_id"
+    t.text     "note"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

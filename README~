@@ -70,9 +70,19 @@ June 19th
 - when create/edit/remove restock, stock will be modified
 - total amount is calculated automatically when create/update purchase
 
-To-dos
-- validate product-location combination in restock with stock table
-- product -> quantity left should be calculated automatically
+June 23rd
+- validate product-location combination with stock table when creating restock
+- design change: add vending machine page to associate vm with stocking location and purchases
+- create controller, model/validations, view for vending machine, add routes
+- add unit price to product model, and change views accordingly
+- remove unit price from purchase(item), and change views accordingly
+- change vending machine from text to reference in purchase
+- redo purchase controller logic on price calculation
+- change product model/views to use vending machine model as reference
+- Remigrate database
+- Test, check and fix bugs
 
-- add vending machine page so we can associate vm with stocking location
-- add unit price to product model
+To-dos
+- when purchasing, related vending location will decrease quantity, product total sold will increase
+- product -> quantity left should be calculated automatically
+- Revise things related to archieved products

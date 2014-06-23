@@ -5,6 +5,7 @@ class CreateProducts < ActiveRecord::Migration
       t.string :name
       t.references :manufacturer
       t.text :description
+      t.decimal :unit_price
       t.integer :quantity_sold
       t.integer :quantity_left
       t.boolean :archieved

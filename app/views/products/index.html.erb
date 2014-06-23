@@ -5,7 +5,8 @@
 <%= link_to 'Employee', controller: 'employees' %>
 <%= link_to 'Location', controller: 'locations' %>
 <%= link_to 'Stock', controller: 'stocks' %>
-<%= link_to 'Restock', controller: 'restocks' %></h3>
+<%= link_to 'Restock', controller: 'restocks' %>
+<%= link_to 'Vending Machine', controller: 'vending_machines' %></h3>
 <h3>List all Products</h3>
 <table border="1">
   <tr>
@@ -13,6 +14,7 @@
     <th>Name</th>
     <th>Manufacturer</th>
     <th>Description</th>
+    <th>Unit Price</th>
     <th>Quantity Sold</th>
     <th>Quantity Left</th>
     <th>Archieved</th>
@@ -24,6 +26,7 @@
       <td><%= product.name %></td>
       <td><%= Manufacturer.find(product.manufacturer).name %></td>
       <td><%= product.description %></td>
+      <td><%= product.unit_price %></td>
       <td><%= product.quantity_sold %></td>
       <td><%= product.quantity_left %></td>
       <td><%= product.archieved %></td>
