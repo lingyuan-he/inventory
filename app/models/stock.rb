@@ -1,5 +1,6 @@
 class Stock < ActiveRecord::Base
   has_one :location
+  has_one :product
   validates :product_id, presence: true
   validates_uniqueness_of :product_id, :scope => :location_id, :message => "and location combination already exist"
   validates :location_id, presence: true

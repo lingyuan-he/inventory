@@ -8,6 +8,9 @@ class Purchase < ActiveRecord::Base
   validate :stock_location_has_products?
   
   def stock_location_has_products?
+    if self.vending_machine_id == nil
+      return false
+    end
     @location = VendingMachine.find(self.vending_machine_id).stock_location_id
     self.items.each do |item| 
       @stock = Stock.find_by_product_id_and_location_id(item.product_id, @location)

@@ -6,26 +6,7 @@
 <%= link_to 'Location', controller: 'locations' %>
 <%= link_to 'Stock', controller: 'stocks' %>
 <%= link_to 'Restock', controller: 'restocks' %>
+<%= link_to 'Transfer', controller: 'transfers' %>
 <%= link_to 'Vending Machine', controller: 'vending_machines' %></h3>
-<h3>Stock Page</h3>
-<p>
-  <strong>ID:</strong>
-  <%= @stock.id %>
-</p>
-<p>
-  <strong>Product:</strong>
-  <%= @product %>
-</p>
-<p>
-  <strong>Location:</strong>
-  <%= @location %>
-</p>
-<p>
-  <strong>Quantity Left:</strong>
-  <%= @stock.quantity_left %>
-</p>
-<p>
-  <strong>Alarm Threshold:</strong>
-  <%= @stock.alarm_threshold %>
-</p>
-<p> <%= link_to 'Back', stocks_path %> </p>
+<h3>Add New Transfer</h3>
+<%= render 'form' %>

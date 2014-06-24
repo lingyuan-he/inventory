@@ -91,9 +91,21 @@ June 24th
 - add validation to disallow placing purchase when there is no specific product in the stock location for the vm
 - add validation to disallow placing purchase when the stock location of the vm is not enough to cover purchase
 - add cancel/back links on new/edit/show pages
+- generate model/controller of transfer, add routes
+- edit migration and migrate db
+- complete transfer controller actions
+- add validations to transfer model, including check stock existence, quantity validity, location not same
+- add missing relationships to models
+- complete transfer views
 
 To-dos
 - Revise things related to archieved products
 - main alert page
-- add transfer table to track transfer
-- page titles
+- page titles/navs on all views
+
+Known Issues
+- when deleting a transfer, quantity left for the transfer in location may become negative
+- when deleting a restock, quantity left for the location may become negative
+- in stock/restock, if user diliberately not entering amount, crash will happen
+- delete products/manufacturers will be a problem for stock/restock/purchase
+- if new purchase item is not created due to error, stock/product might be changed

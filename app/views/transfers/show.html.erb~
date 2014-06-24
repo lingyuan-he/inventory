@@ -1,0 +1,40 @@
+<h2>Inventory Management System</h2>
+<h3><%= link_to 'Manufacturer', controller: 'manufacturers' %>
+<%= link_to 'Product', controller: 'products' %>
+<%= link_to 'Purchase', controller: 'purchases' %>
+<%= link_to 'Employee', controller: 'employees' %>
+<%= link_to 'Location', controller: 'locations' %>
+<%= link_to 'Stock', controller: 'stocks' %>
+<%= link_to 'Restock', controller: 'restocks' %>
+<%= link_to 'Transfer', controller: 'transfers' %>
+<%= link_to 'Vending Machine', controller: 'vending_machines' %></h3>
+<h3>Transfer Page</h3>
+<p>
+  <strong>ID:</strong>
+  <%= @transfer.id %>
+</p>
+<p>
+  <strong>Timestamp:</strong>
+  <%= @transfer.created_at %>
+</p>
+<p>
+  <strong>Product:</strong>
+  <%= Product.find(@transfer.product_id).name %>
+</p>
+<p>
+  <strong>From Location:</strong>
+  <%= Location.find(@transfer.from_location_id).name %>
+</p>
+<p>
+  <strong>To Location:</strong>
+  <%= Location.find(@transfer.to_location_id).name %>
+</p>
+<p>
+  <strong>Quantity:</strong>
+  <%= @transfer.quantity %>
+</p>
+<p>
+  <strong>Transfer Staff</strong>
+  <%= Employee.find(@transfer.transfer_staff_id).name %>
+</p>
+<p> <%= link_to 'Back', transfers_path %> </p>

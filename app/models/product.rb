@@ -3,6 +3,7 @@ class Product < ActiveRecord::Base
   belongs_to :item
   belongs_to :stock
   belongs_to :restock
+  belongs_to :transfer
   validates :name, presence: true
   validates_uniqueness_of :name, :message => "already exists in the database"
   validates :manufacturer_id, presence: true

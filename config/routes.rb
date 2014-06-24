@@ -15,6 +15,8 @@ Inventory::Application.routes.draw do
   
   resources :vending_machines
   
+  resources :transfers
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

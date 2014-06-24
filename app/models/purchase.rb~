@@ -12,11 +12,11 @@ class Purchase < ActiveRecord::Base
     self.items.each do |item| 
       @stock = Stock.find_by_product_id_and_location_id(item.product_id, @location)
       if @stock == nil
-        errors.add(:vending_machine_id, "does not have product " + Product.find(item.product_id).name + " in its stocking location " + Location.find(@location).name)
+        errors.add(:vending_machine_id, "does not have " + Product.find(item.product_id).name + " in its stocking location " + Location.find(@location).name)
         return false
       end
       if @stock.quantity_left < item.quantity
-        errors.add(:vending_machine_id, "does not have enough product " + Product.find(item.product_id).name + " in its stocking location " + Location.find(@location).name)
+        errors.add(:vending_machine_id, "does not have enough " + Product.find(item.product_id).name + " in its stocking location " + Location.find(@location).name)
         return false
       end
     end

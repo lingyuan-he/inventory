@@ -67,6 +67,10 @@ class PurchasesController < ApplicationController
       @purchase.update_attribute(:total_amount,@total)
       redirect_to @purchase
     else
+      #recover changes
+      @product.update_attribute(:quantity_left, @product.quantity_left - item.quantity)
+      @product.update_attribute(:quantity_sold, @product.quantity_sold + item.quantity)
+      @stock.update_attribute(:quantity_left, @stock.quantity_left - item.quantity)
       render 'edit'
     end
   end

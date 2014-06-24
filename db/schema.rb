@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140623183834) do
+ActiveRecord::Schema.define(:version => 20140624183440) do
 
   create_table "employees", :force => true do |t|
     t.string   "name"
@@ -85,6 +85,17 @@ ActiveRecord::Schema.define(:version => 20140623183834) do
     t.integer  "location_id"
     t.integer  "quantity_left"
     t.integer  "alarm_threshold"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "transfers", :force => true do |t|
+    t.integer  "product_id"
+    t.integer  "from_location_id"
+    t.integer  "to_location_id"
+    t.integer  "quantity"
+    t.integer  "transfer_staff_id"
+    t.text     "note"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

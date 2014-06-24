@@ -17,18 +17,18 @@ class PurchasesController < ApplicationController
   def create
     @purchase = Purchase.new(params[:purchase])
     @total = 0
-    @purchase.items.each do |item|
-      @product = Product.find(item.product_id) 
-      @total = @total + item.quantity * @product.unit_price #calculate total amount
-      #apply quantity changes to product
-      @product.update_attribute(:quantity_left, @product.quantity_left - item.quantity)
-      @product.update_attribute(:quantity_sold, @product.quantity_sold + item.quantity)
-      #apply quantity change to stock
-      @stock = Stock.find_by_location_id_and_product_id(VendingMachine.find(@purchase.vending_machine_id).stock_location_id, item.product_id)
-      @stock.update_attribute(:quantity_left, @stock.quantity_left - item.quantity)
-    end
-    @purchase.total_amount = @total
     if @purchase.save
+      @purchase.items.each do |item|
+        @product = Product.find(item.product_id) 
+        @total = @total + item.quantity * @product.unit_price #calculate total amount
+        #apply quantity changes to product
+        @product.update_attribute(:quantity_left, @product.quantity_left - item.quantity)
+        @product.update_attribute(:quantity_sold, @product.quantity_sold + item.quantity)
+        #apply quantity change to stock
+        @stock = Stock.find_by_location_id_and_product_id(VendingMachine.find(@purchase.vending_machine_id).stock_location_id, item.product_id)
+        @stock.update_attribute(:quantity_left, @stock.quantity_left - item.quantity)
+      end
+      @purchase.update_attribute(:total_amount, @total)
       redirect_to @purchase
     else
       render 'new'
@@ -67,6 +67,9 @@ class PurchasesController < ApplicationController
       @purchase.update_attribute(:total_amount,@total)
       redirect_to @purchase
     else
+      #recover changes
+      @product.update_attribute(:quantity_left, @product.quantity_left - item.quantity)
+      @product.update_attribute(:quantity_sold, @product.quantity_sold + item.quantity)
       render 'edit'
     end
   end
