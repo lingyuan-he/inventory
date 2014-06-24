@@ -17,6 +17,8 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(params[:product])
     if @product.save
+      #defaul 0 value for quantity left
+      @product.update_attribute(:quantity_left, 0)
       redirect_to @product
     else
       render 'new'

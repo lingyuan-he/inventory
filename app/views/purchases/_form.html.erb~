@@ -16,7 +16,7 @@
   </p>
   <p>
     <%= f.label :vending_machine %><br>
-    <%= f.text_field :vending_machine %>
+    <%= f.collection_select(:vending_machine_id, VendingMachine.order(:name), :id, :name, {:include_blank => "Please select"}) %>
   </p>
   <!--<p>
     <%= f.label :total_amount %><br>

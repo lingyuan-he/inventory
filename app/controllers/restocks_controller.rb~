@@ -18,8 +18,11 @@ class RestocksController < ApplicationController
   def create
     @restock = Restock.new(params[:restock])
     if @restock.save
-      @stock = Stock.find_by_product_id_and_location_id(@restock.product_id,@restock.location_id)
-      @stock.update_attribute(:quantity_left,@stock.quantity_left + @restock.quantity)
+      #new quantity values for stock and product
+      @stock = Stock.find_by_product_id_and_location_id(@restock.product_id, @restock.location_id)
+      @stock.update_attribute(:quantity_left, @stock.quantity_left + @restock.quantity)
+      @product = Product.find(@restock.product_id)
+      @product.update_attribute(:quantity_left, @product.quantity_left + @restock.quantity)
       redirect_to @restock
     else
       render 'new'
@@ -32,10 +35,14 @@ class RestocksController < ApplicationController
 
   def update
     @restock = Restock.find(params[:id])
+    #apply quantity changes for stock and product
     @stock = Stock.find_by_product_id_and_location_id(@restock.product_id,@restock.location_id)
-    @new_quantity = @stock.quantity_left - @restock.quantity + params[:restock][:quantity].to_i
+    @new_stock_quantity = @stock.quantity_left - @restock.quantity + params[:restock][:quantity].to_i
+    @product = Product.find(@restock.product_id)
+    @new_product_quantity = @product.quantity_left - @restock.quantity + params[:restock][:quantity].to_i
     if @restock.update_attributes(params[:restock])
-      @stock.update_attribute(:quantity_left,@new_quantity)
+      @stock.update_attribute(:quantity_left, @new_stock_quantity)
+      @product.update_attribute(:quantity_left, @new_product_quantity)
       redirect_to @restock
     else
       render 'edit'
@@ -44,6 +51,11 @@ class RestocksController < ApplicationController
 
   def destroy
     @restock = Restock.find(params[:id])
+    #remove quantity changes for stock and product
+    @stock = Stock.find_by_product_id_and_location_id(@restock.product_id,@restock.location_id)
+    @product = Product.find(@restock.product_id)
+    @stock.update_attribute(:quantity_left, @stock.quantity_left - @restock.quantity)
+    @product.update_attribute(:quantity_left, @product.quantity_left - @restock.quantity)
     @restock.destroy
     redirect_to restocks_path
   end

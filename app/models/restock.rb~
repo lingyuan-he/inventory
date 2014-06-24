@@ -11,7 +11,7 @@ class Restock < ActiveRecord::Base
   
   def product_location_combination?
     if Stock.find_by_product_id_and_location_id(self.product_id, self.location_id) == nil
-      errors.add(:product_id, "and location combination does not exist in Stock")
+      errors.add(:product_id, "and location combination does not exist in stock")
       return false
     else
       return true

@@ -25,6 +25,10 @@
   <%= @product.description %>
 </p>
 <p>
+  <strong>Unit Price:</strong>
+  <%= @product.unit_price %>
+</p>
+<p>
   <strong>Quantity Sold:</strong>
   <%= @product.quantity_sold %>
 </p>

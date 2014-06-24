@@ -23,6 +23,9 @@
     <%= f.collection_select(:stock_location_id, Location.order(:name), :id, :name, {:include_blank => "Please select"}) %>
   </p>
   <p>
+    <%= f.label :note %><br>
+    <%= f.text_area :note %>
+  <p>
     <%= f.submit %>
   </p>
 <% end %>

@@ -82,7 +82,18 @@ June 23rd
 - Remigrate database
 - Test, check and fix bugs
 
+June 24th
+- when creating/updating/destroying restock, product and stock quantity left will be updated
+- add warning when editing stock page
+- when creating/updating/destroying stock, product quantity left will be updated
+- when creating/updating/destroying purchase, product and stock quantity left (or quantity sold) will be updated
+- remove quantity left field in product form (no need to customize, default starting value is 0)
+- add validation to disallow placing purchase when there is no specific product in the stock location for the vm
+- add validation to disallow placing purchase when the stock location of the vm is not enough to cover purchase
+- add cancel/back links on new/edit/show pages
+
 To-dos
-- when purchasing, related vending location will decrease quantity, product total sold will increase
-- product -> quantity left should be calculated automatically
 - Revise things related to archieved products
+- main alert page
+- add transfer table to track transfer
+- page titles

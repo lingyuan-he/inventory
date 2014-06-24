@@ -14,32 +14,14 @@ class StocksController < ApplicationController
 		@location = Location.find(@stock.location_id).name
 	end
 	
-  #def create
-  #  @stock = Stock.new(params[:stock])
-  #  if @stock.save
-  #    redirect_to @stock
-  #  else
-  #    render 'new'
-  #  end
-  #end
-  
   def create
     @stock = Stock.new(params[:stock])
-    @flag = 0
-    @same_product = Stock.find_all_by_product_id(@stock.product_id)
-    @same_product.each do |record|
-      if record.location_id == @stock.location_id
-        flash.now[:notice] = 'You cannot have duplicate record with same product-location combination!'
-        @flag = 1
-        render 'new'
-      end
-    end
-    if @flag == 0 
-      if @stock.save
-        redirect_to @stock
-      else
-        render 'new'
-      end
+    if @stock.save
+      @product = Product.find(@stock.product_id)
+      @product.update_attribute(:quantity_left, @product.quantity_left + @stock.quantity_left)
+      redirect_to @stock
+    else
+      render 'new'
     end
   end
   
@@ -48,8 +30,11 @@ class StocksController < ApplicationController
   end
 
   def update
-    @stock = Stock.find(params[:id])   
+    @stock = Stock.find(params[:id])
+    @product = Product.find(@stock.product_id)
+    @new_product_quantity = @product.quantity_left - @stock.quantity_left + params[:stock][:quantity_left].to_i
     if @stock.update_attributes(params[:stock])
+      @product.update_attribute(:quantity_left, @new_product_quantity)
       redirect_to @stock
     else
       render 'edit'

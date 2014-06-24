@@ -17,6 +17,8 @@ class StocksController < ApplicationController
   def create
     @stock = Stock.new(params[:stock])
     if @stock.save
+      @product = Product.find(@stock.product_id)
+      @product.update_attribute(:quantity_left, @product.quantity_left + @stock.quantity_left)
       redirect_to @stock
     else
       render 'new'
@@ -28,8 +30,11 @@ class StocksController < ApplicationController
   end
 
   def update
-    @stock = Stock.find(params[:id])   
+    @stock = Stock.find(params[:id])
+    @product = Product.find(@stock.product_id)
+    @new_product_quantity = @product.quantity_left - @stock.quantity_left + params[:stock][:quantity_left].to_i
     if @stock.update_attributes(params[:stock])
+      @product.update_attribute(:quantity_left, @new_product_quantity)
       redirect_to @stock
     else
       render 'edit'
@@ -38,6 +43,8 @@ class StocksController < ApplicationController
 
   def destroy
     @stock = Stock.find(params[:id])
+    @product = Product.find(@stock.product_id)
+    @product.update_attribute(:quantity_left, @product.quantity_left - @stock.quantity_left)
     @stock.destroy
     redirect_to stocks_path
   end

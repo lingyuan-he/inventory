@@ -23,8 +23,8 @@
     <%= f.text_field :quantity_left %>
   </p>
   <p>
-    <%= f.label :threshold %><br>
-    <%= f.text_field :threshold %>
+    <%= f.label :alarm_threshold %><br>
+    <%= f.text_field :alarm_threshold %>
   </p>
   <p>
     <%= f.submit %>

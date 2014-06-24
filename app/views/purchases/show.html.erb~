@@ -22,7 +22,7 @@
 </p>
 <p>
   <strong>Vending Machine:</strong>
-  <%= @purchase.vending_machine %>
+  <%= VendingMachine.find(@purchase.vending_machine_id).name %>
 </p>
 <p>
   <strong>Total Amount:</strong>

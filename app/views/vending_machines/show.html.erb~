@@ -7,35 +7,23 @@
 <%= link_to 'Stock', controller: 'stocks' %>
 <%= link_to 'Restock', controller: 'restocks' %>
 <%= link_to 'Vending Machine', controller: 'vending_machines' %></h3>
-<h3>Restock Page</h3>
+<h3>Vending Machine Page</h3>
 <p>
   <strong>ID:</strong>
-  <%= @restock.id %>
+  <%= @vm.id %>
 </p>
 <p>
-  <strong>Timestamp:</strong>
-  <%= @restock.created_at %>
+  <strong>Name:</strong>
+  <%= @vm.name %>
 <p>
-  <strong>Product:</strong>
-  <%= @product %>
+  <strong>Address:</strong>
+  <%= @vm.address %>
 </p>
 <p>
-  <strong>Location:</strong>
+  <strong>Stock Location:</strong>
   <%= @location %>
 </p>
 <p>
-  <strong>Quantity:</strong>
-  <%= @restock.quantity %>
-</p>
-<p>
-  <strong>Unit Cost:</strong>
-  <%= @restock.unit_cost %>
-</p>
-<p>
-  <strong>Restock Staff:</strong>
-  <%= @staff %>
-</p>
-<p>
   <strong>Note:</strong>
-  <%= @restock.note%>
+  <%= @vm.note %>
 </p>
