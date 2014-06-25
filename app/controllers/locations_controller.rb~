@@ -1,7 +1,7 @@
 class LocationsController < ApplicationController
 
   def index
-    @locations = Location.all
+    @locations = Location.order(:id)
   end
   
 	def new
@@ -11,7 +11,7 @@ class LocationsController < ApplicationController
 	
 	def show
 		@location = Location.find(params[:id])
-		@manager = Employee.find(@location.manager_ID).name
+		@manager = Employee.find(@location.manager_id).name
 	end
 	
   def create

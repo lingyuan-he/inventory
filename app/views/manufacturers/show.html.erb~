@@ -32,4 +32,4 @@
   <strong>Contact's Email:</strong>
   <%= @manufacturer.contact_email %>
 </p>
-<p> <%= link_to 'Back', manufactrers_path %> </p>
+<p> <%= link_to 'Back', manufacturers_path %> </p>

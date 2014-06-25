@@ -98,14 +98,18 @@ June 24th
 - add missing relationships to models
 - complete transfer views
 
-To-dos
-- Revise things related to archieved products
-- main alert page
-- page titles/navs on all views
+June 25th
+- order location/employee/manufacturer/product/vendingmachine by name, order restock/transfer by timestamp, order purchase by invoice number
+- create homepage controller, write index page, add root route
+- fix all model relation errors
+- update page navs on all views
+- remove product-archieved?
+- add stock-active? column, when a stock is inactive, it won't trigger alarm
+- reset database and test
 
 Known Issues
 - when deleting a transfer, quantity left for the transfer in location may become negative
 - when deleting a restock, quantity left for the location may become negative
-- in stock/restock, if user diliberately not entering amount, crash will happen
-- delete products/manufacturers will be a problem for stock/restock/purchase
-- if new purchase item is not created due to error, stock/product might be changed
+- in purchase, if user diliberately not entering amount, crash will happen
+- when stock is inactive and amount is still positive, purchase can still happen
+- delete any object that is referenced will crash the system (e.g. delete employee who is listed as location manager)

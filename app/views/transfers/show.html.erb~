@@ -37,4 +37,8 @@
   <strong>Transfer Staff</strong>
   <%= Employee.find(@transfer.transfer_staff_id).name %>
 </p>
+<p>
+  <strong>Note:</strong>
+  <%= @transfer.note %>
+</p>
 <p> <%= link_to 'Back', transfers_path %> </p>

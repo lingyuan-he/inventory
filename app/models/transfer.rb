@@ -1,7 +1,7 @@
 class Transfer < ActiveRecord::Base
-  has_many :location
-  has_one :product
-  has_one :employee
+  belongs_to :location
+  belongs_to :product
+  belongs_to :employee
   validates :product_id, presence: true
   validates :from_location_id, presence: true
   validates :to_location_id, presence: true

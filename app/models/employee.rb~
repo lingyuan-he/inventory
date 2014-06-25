@@ -1,5 +1,6 @@
 class Employee < ActiveRecord::Base
   has_one :location
+  belongs_to :transfer
   validates_uniqueness_of :name, :message => "already exists in the database"
   validates :name, presence: true
   validates :role, presence: true

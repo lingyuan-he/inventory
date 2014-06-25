@@ -28,3 +28,4 @@
   <strong>Note:</strong>
   <%= @location.note %>
 </p>
+<p> <%= link_to 'Back', locations_path %> </p>

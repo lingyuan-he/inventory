@@ -1,7 +1,7 @@
 class VendingMachinesController < ApplicationController
 
   def index
-    @vms = VendingMachine.all
+    @vms = VendingMachine.order(:name)
   end
   
 	def new

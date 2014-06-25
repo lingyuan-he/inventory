@@ -23,14 +23,14 @@
   </tr>
   <% @transfers.each do |transfer| %>
     <tr>
-      <td><%= @transfer.id %></td>
-      <td><%= @transfer.created_at %></td>
-      <td><%= Product.find(@transfer.product_id).name %></td>
-      <td><%= Location.find(@transfer.from_location_id).name %></td>
-      <td><%= Location.find(@transfer.to_location_id).name %></td>
-      <td><%= @transfer.quantity %></td>
-      <td><%= Employee.find(@transfer.transfer_staff_id).name %></td>
-      <td><%= @transfer.note %></td>
+      <td><%= transfer.id %></td>
+      <td><%= transfer.created_at %></td>
+      <td><%= Product.find(transfer.product_id).name %></td>
+      <td><%= Location.find(transfer.from_location_id).name %></td>
+      <td><%= Location.find(transfer.to_location_id).name %></td>
+      <td><%= transfer.quantity %></td>
+      <td><%= Employee.find(transfer.transfer_staff_id).name %></td>
+      <td><%= transfer.note %></td>
       <td><%= link_to 'Details', transfer_path(transfer) %></td>
       <td><%= link_to 'Edit', edit_transfer_path(transfer) %></td>
       <td><%= link_to 'Destroy', transfer_path(transfer), :method => :delete, :confirm => 'Are you sure?' %></td>

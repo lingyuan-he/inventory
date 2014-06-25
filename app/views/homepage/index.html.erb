@@ -1,0 +1,102 @@
+<h2>Inventory Management System</h2>
+<h3><%= link_to 'Home', controller: 'homepage' %>
+<%= link_to 'Manufacturer', controller: 'manufacturers' %>
+<%= link_to 'Product', controller: 'products' %>
+<%= link_to 'Purchase', controller: 'purchases' %>
+<%= link_to 'Employee', controller: 'employees' %>
+<%= link_to 'Location', controller: 'locations' %>
+<%= link_to 'Stock', controller: 'stocks' %>
+<%= link_to 'Restock', controller: 'restocks' %>
+<%= link_to 'Transfer', controller: 'transfers' %>
+<%= link_to 'Vending Machine', controller: 'vending_machines' %></h3>
+<p><h3>Homepage</h3></p>
+<p><h3>Stock Alarms</h3></p>
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Product</th>
+    <th>Location</th>
+    <th>Quantity Left</th>
+    <th>Alarm Threshold</th>
+  </tr>
+  <% @stocks.each do |stock| %>
+    <tr>
+      <td><%= stock.id %></td>
+      <td><%= Product.find(stock.product_id).name %></td>
+      <td><%= Location.find(stock.location_id).name %></td>
+      <td><font color="red"><%= stock.quantity_left %></font></td>
+      <td><strong><%= stock.alarm_threshold %></strong></td>
+    </tr>
+  <% end %>
+</table>
+<p><h3>Recent Restocks</h3></p>
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Timestamp</th>
+    <th>Product</th>
+    <th>Location</th>
+    <th>Quantity</th>
+    <th>Unit Cost</th>
+    <th>Restock Staff</th>
+    <th>Note</th>
+  </tr>
+  <% @restocks.each do |restock| %>
+    <tr>
+      <td><%= restock.id %></td>
+      <td><%= restock.created_at %></td>
+      <td><%= Product.find(restock.product_id).name %></td>
+      <td><%= Location.find(restock.location_id).name %></td>
+      <td><%= restock.quantity %></td>
+      <td><%= restock.unit_cost %></td>
+      <td><%= Employee.find(restock.restock_staff_id).name %></td>
+      <td><%= restock.note %></td>
+    </tr>
+  <% end %>
+</table>
+<p><h3>Recent Transfers</h3></p>
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Timestamp</th>
+    <th>Product</th>
+    <th>From Location</th>
+    <th>To Location</th>
+    <th>Quantity</th>
+    <th>Transfer Staff</th>
+    <th>Note</th>
+  </tr>
+  <% @transfers.each do |transfer| %>
+    <tr>
+      <td><%= transfer.id %></td>
+      <td><%= transfer.created_at %></td>
+      <td><%= Product.find(transfer.product_id).name %></td>
+      <td><%= Location.find(transfer.from_location_id).name %></td>
+      <td><%= Location.find(transfer.to_location_id).name %></td>
+      <td><%= transfer.quantity %></td>
+      <td><%= Employee.find(transfer.transfer_staff_id).name %></td>
+      <td><%= transfer.note %></td>
+    </tr>
+  <% end %>
+</table>
+<p><h3>Recent Purchases</h3></p>
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Invoice Number</th>
+    <th>Timestamp</th>
+    <th>Vending Machine</th>
+    <th>Total Amount</th>
+    <th> </th>
+  </tr>
+  <% @purchases.each do |purchase| %>
+    <tr>
+      <td><%= purchase.id %></td>
+      <td><%= purchase.invoice_number %></td>
+      <td><%= purchase.created_at %></td>
+      <td><%= VendingMachine.find(purchase.vending_machine_id).name %></td>
+      <td><%= purchase.total_amount %></td>
+      <td><%= link_to 'Details', purchase_path(purchase) %></td>
+    </tr>
+  <% end %>
+</table>

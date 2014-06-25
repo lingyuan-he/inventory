@@ -1,7 +1,7 @@
 class TransfersController < ApplicationController
 
   def index
-    @transfers = Transfer.all
+    @transfers = Transfer.order("created_at DESC")
   end
   
   def new

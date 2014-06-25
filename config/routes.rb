@@ -1,4 +1,7 @@
 Inventory::Application.routes.draw do
+
+  root :to => 'homepage#index'
+
   resources :products
   
   resources :manufacturers

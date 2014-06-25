@@ -56,7 +56,6 @@ ActiveRecord::Schema.define(:version => 20140624183440) do
     t.decimal  "unit_price"
     t.integer  "quantity_sold"
     t.integer  "quantity_left"
-    t.boolean  "archieved"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -85,6 +84,7 @@ ActiveRecord::Schema.define(:version => 20140624183440) do
     t.integer  "location_id"
     t.integer  "quantity_left"
     t.integer  "alarm_threshold"
+    t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

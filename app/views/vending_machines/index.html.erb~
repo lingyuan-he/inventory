@@ -22,7 +22,7 @@
       <td><%= vm.id %></td>
       <td><%= vm.name %></td>
       <td><%= vm.address %></td>
-      <td><%= Location.find(vm.restock_location_id).name %></td>
+      <td><%= Location.find(vm.stock_location_id).name %></td>
       <td><%= vm.note %></td>
       <td><%= link_to 'Details', vending_machine_path(vm) %></td>
       <td><%= link_to 'Edit', edit_vending_machine_path(vm) %></td>

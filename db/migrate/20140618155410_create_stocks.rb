@@ -6,6 +6,7 @@ class CreateStocks < ActiveRecord::Migration
       t.references :location
       t.integer :quantity_left
       t.integer :alarm_threshold
+      t.boolean :active
       t.timestamps
     end
   end

@@ -17,6 +17,10 @@ class Transfer < ActiveRecord::Base
     elsif self.to_location_id == nil
       return false
     end
+    if self.from_location_id == self.to_location_id
+      errors.add(:from_location_id, "is the same as destination")
+      return false
+    end
     @stock_from = Stock.find_by_product_id_and_location_id(self.product_id, self.from_location_id)
     @stock_to = Stock.find_by_product_id_and_location_id(self.product_id, self.to_location_id)
     if @stock_from == nil

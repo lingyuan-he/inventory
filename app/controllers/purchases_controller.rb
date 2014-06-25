@@ -1,7 +1,7 @@
 class PurchasesController < ApplicationController
 
   def index
-    @purchases = Purchase.all
+    @purchases = Purchase.order("created_at DESC")
   end
   
   def new

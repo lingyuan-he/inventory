@@ -8,7 +8,6 @@ class CreateProducts < ActiveRecord::Migration
       t.decimal :unit_price
       t.integer :quantity_sold
       t.integer :quantity_left
-      t.boolean :archieved
       t.timestamps
     end
   end

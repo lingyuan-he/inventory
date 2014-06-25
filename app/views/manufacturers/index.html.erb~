@@ -7,6 +7,7 @@
 <%= link_to 'Stock', controller: 'stocks' %>
 <%= link_to 'Restock', controller: 'restocks' %>
 <%= link_to 'Vending Machine', controller: 'vending_machines' %></h3>
+<h3>List all Manufacturers</h3>
 <table border="1">
   <tr>
     <th>ID</th>

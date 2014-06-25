@@ -1,7 +1,7 @@
 class RestocksController < ApplicationController
 
   def index
-    @restocks = Restock.all
+    @restocks = Restock.order("created_at DESC")
   end
   
 	def new

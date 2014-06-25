@@ -1,7 +1,7 @@
 class StocksController < ApplicationController
 
   def index
-    @stocks = Stock.all
+    @stocks = Stock.joins(:location, :product).includes(:location, :product).order("t1_r1").order("t2_r1")
   end
   
 	def new

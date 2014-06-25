@@ -15,7 +15,7 @@ class VendingMachinesController < ApplicationController
 	
   def create
     @vm = VendingMachine.new(params[:vending_machine])
-    if @stock.save
+    if @vm.save
       redirect_to @vm
     else
       render 'new'

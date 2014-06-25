@@ -1,7 +1,7 @@
 class ManufacturersController < ApplicationController
 
   def index
-    @manufacturers = Manufacturer.all
+    @manufacturers = Manufacturer.order(:id)
   end
   
 	def new
@@ -27,7 +27,7 @@ class ManufacturersController < ApplicationController
 
   def update
     @manufacturer = Manufacturer.find(params[:id])
-    if @manufacturer.save(params[:manufacturer])
+    if @manufacturer.update_attributes(params[:manufacturer])
       redirect_to @manufacturer
     else
       render 'edit'

@@ -37,4 +37,5 @@
   <p>
     <%= f.submit %>
   </p>
+  <p> <%= link_to 'Cancel', products_path %> </p>
 <% end %>

@@ -27,6 +27,10 @@
     <%= f.text_field :alarm_threshold %>
   </p>
   <p>
+    <%= f.label :active? %><br>
+    <%= f.select(:active, [['Yes', true], ['No', false]]) %>
+  </p>
+  <p>
     <%= f.submit %>
   </p>
   <p> <%= link_to 'Cancel', stocks_path %> </p>

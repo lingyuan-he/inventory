@@ -1,5 +1,5 @@
 class Manufacturer < ActiveRecord::Base
-  has_many :product, dependent: :destroy
+  has_many :product
   validates :name, presence: true
   validates_uniqueness_of :name, :message => "already exists in the database"
   validates :address, presence: true

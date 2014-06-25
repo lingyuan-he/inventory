@@ -1,7 +1,7 @@
 class StocksController < ApplicationController
 
   def index
-    @stocks = Stock.all
+    @stocks = Stock.joins(:location, :product).includes(:location, :product).order("t1_r1")
   end
   
 	def new
@@ -43,6 +43,8 @@ class StocksController < ApplicationController
 
   def destroy
     @stock = Stock.find(params[:id])
+    @product = Product.find(@stock.product_id)
+    @product.update_attribute(:quantity_left, @product.quantity_left - @stock.quantity_left)
     @stock.destroy
     redirect_to stocks_path
   end
