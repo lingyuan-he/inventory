@@ -1,5 +1,6 @@
 class Purchase < ActiveRecord::Base
   has_many :items, dependent: :destroy
+  belongs_to :vendingmachine
   accepts_nested_attributes_for :items, :allow_destroy => true, :reject_if => lambda { |a| a[:quantity].blank? or a[:product_id].blank? }
   validates :items, presence: true
   validates :invoice_number, presence: true

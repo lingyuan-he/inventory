@@ -36,8 +36,12 @@ class ManufacturersController < ApplicationController
 
   def destroy
     @manufacturer = Manufacturer.find(params[:id])
-    @manufacturer.destroy
-    redirect_to manufacturers_path
+    if @manufacturer.destroy
+      redirect_to manufacturers_path
+    else
+      flash[:alert] = 'The manufacturer you want to destroy is used as a reference!'
+      redirect_to manufacturers_path
+    end
   end
   
 end

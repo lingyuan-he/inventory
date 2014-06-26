@@ -40,8 +40,12 @@ class ProductsController < ApplicationController
 
   def destroy
     @product = Product.find(params[:id])
-    @product.destroy
-    redirect_to products_path
+    if @product.destroy
+      redirect_to products_path
+    else
+      flash[:alert] = 'The product you want to destroy is used as a reference!'
+      redirect_to products_path
+    end
   end
 
 end

@@ -1,7 +1,7 @@
 class Restock < ActiveRecord::Base
-  has_one :product
-  has_one :location
-  has_one :employee
+  belongs_to :product
+  belongs_to :location
+  belongs_to :employee
   validates :product_id, presence: true
   validates :location_id, presence: true
   validate :product_location_combination_exists?

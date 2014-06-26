@@ -99,7 +99,9 @@ June 24th
 - complete transfer views
 
 June 25th
-- order location/employee/manufacturer/product/vendingmachine by name, order restock/transfer by timestamp, order purchase by invoice number
+- order location/employee/manufacturer/product/vendingmachine by name,
+- order restock/transfer/purchase by timestamp
+- order stock by location and product name
 - create homepage controller, write index page, add root route
 - fix all model relation errors
 - update page navs on all views
@@ -107,9 +109,12 @@ June 25th
 - add stock-active? column, when a stock is inactive, it won't trigger alarm
 - reset database and test
 
+June 26th
+- continue to revise model relations
+- when employee/location/product/vending machine is referenced, raise erorr message when trying to destroy
+- when destroying a transfer, perform check to prevent original destination to have a nagative quantity_left
+- 
 Known Issues
-- when deleting a transfer, quantity left for the transfer in location may become negative
 - when deleting a restock, quantity left for the location may become negative
-- in purchase, if user diliberately not entering amount, crash will happen
 - when stock is inactive and amount is still positive, purchase can still happen
 - delete any object that is referenced will crash the system (e.g. delete employee who is listed as location manager)

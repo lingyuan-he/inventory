@@ -8,6 +8,7 @@ class Restock < ActiveRecord::Base
   validates :quantity, :numericality => { :greater_than => 0 }
   validates :unit_cost, :numericality => { :greater_than_or_equal_to => 0 }
   validates :restock_staff_id, presence: true
+  before_destroy :quantity_left_okay?
   
   def product_location_combination_exists?
     if Stock.find_by_product_id_and_location_id(self.product_id, self.location_id) == nil
@@ -16,5 +17,13 @@ class Restock < ActiveRecord::Base
     else
       return true
     end
+  end
+  
+  def quantity_left_okay?
+    @stock = Stock.find_by_location_id_and_product_id(self.location_id, self.product_id)
+    if @stock.quantity_left - self.quantity < 0
+      return false
+    end
+    return true
   end
 end

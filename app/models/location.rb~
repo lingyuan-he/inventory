@@ -1,11 +1,14 @@
 class Location < ActiveRecord::Base
   belongs_to :employee
-  belongs_to :stock
-  belongs_to :restock
-  belongs_to :transfer
-  belongs_to :vending_machine
+  has_many :stocks
+  has_many :restocks
+  has_many :transfers
+  has_many :vending_machines
   validates_uniqueness_of :name, :message => "already exists in the database"
   validates :name, presence: true
   validates :address, presence: true
   validates :manager_id, presence: true
+  #before_destroy :location_used?
+  
+
 end

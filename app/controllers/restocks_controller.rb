@@ -54,10 +54,15 @@ class RestocksController < ApplicationController
     #remove quantity changes for stock and product
     @stock = Stock.find_by_product_id_and_location_id(@restock.product_id,@restock.location_id)
     @product = Product.find(@restock.product_id)
-    @stock.update_attribute(:quantity_left, @stock.quantity_left - @restock.quantity)
-    @product.update_attribute(:quantity_left, @product.quantity_left - @restock.quantity)
-    @restock.destroy
-    redirect_to restocks_path
+    @quantity = @restock.quantity
+    if @restock.destroy
+      @stock.update_attribute(:quantity_left, @stock.quantity_left - @quantity)
+      @product.update_attribute(:quantity_left, @product.quantity_left - @quantity)
+      redirect_to restocks_path
+    else
+      flash[:alert] = 'Destroy this restock will cause the location to have negative quantity left!'
+      redirect_to restocks_path
+    end
   end
 
 end

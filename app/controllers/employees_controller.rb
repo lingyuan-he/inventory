@@ -36,8 +36,12 @@ class EmployeesController < ApplicationController
 
   def destroy
     @employee = Employee.find(params[:id])
-    @employee.destroy
-    redirect_to employees_path
+    if @employee.destroy
+      redirect_to employees_path
+    else
+      flash[:alert] = 'The employee you want to destroy is used as a reference!'
+      redirect_to employees_path
+    end
   end
 
 end

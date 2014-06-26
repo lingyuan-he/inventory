@@ -10,6 +10,7 @@
 <%= link_to 'Transfer', controller: 'transfers' %>
 <%= link_to 'Vending Machine', controller: 'vending_machines' %></h3>
 <h3>List all Employees</h3>
+<h3><font color='red'><%= flash[:alert] %></font></h3>
 <table border="1">
   <tr>
     <th>ID</th>
@@ -19,7 +20,6 @@
     <th>Email</th>
     <th colspan = "3"> </th>
   </tr>
- 
   <% @employees.each do |employee| %>
     <tr>
       <td><%= employee.id %></td>

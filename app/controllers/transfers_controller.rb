@@ -54,11 +54,16 @@ class TransfersController < ApplicationController
     @transfer = Transfer.find(params[:id])
     @stock_out = Stock.find_by_location_id_and_product_id(@transfer.from_location_id, @transfer.product_id)
     @stock_in = Stock.find_by_location_id_and_product_id(@transfer.to_location_id, @transfer.product_id)
-    #rollback quantity changes on stock
-    @stock_out.update_attribute(:quantity_left, @stock_out.quantity_left + @transfer.quantity)
-    @stock_in.update_attribute(:quantity_left, @stock_in.quantity_left - @transfer.quantity)
-    @transfer.destroy
-    redirect_to transfers_path
+    @quantity = @transfer.quantity
+    if @transfer.destroy
+      #rollback quantity changes on stock
+      @stock_out.update_attribute(:quantity_left, @stock_out.quantity_left + @quantity)
+      @stock_in.update_attribute(:quantity_left, @stock_in.quantity_left - @quantity)
+      redirect_to transfers_path
+    else
+      flash[:alert] = 'Destroy this transfer will cause the destination to have negative quantity left!'
+      redirect_to transfers_path
+    end
   end
 
 end

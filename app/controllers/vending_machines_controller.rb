@@ -37,8 +37,12 @@ class VendingMachinesController < ApplicationController
 
   def destroy
     @vm = VendingMachine.find(params[:id])
-    @vm.destroy
-    redirect_to vending_machines_path
+    if @vm.destroy
+      redirect_to vending_machines_path
+    else
+      flash[:alert] = 'The vending machine you want to destroy is referenced in purchase!'
+      redirect_to vending_machines_path
+    end
   end
 
 end
