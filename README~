@@ -112,9 +112,17 @@ June 25th
 June 26th
 - continue to revise model relations
 - when employee/location/product/vending machine is referenced, raise erorr message when trying to destroy
-- when destroying a transfer, perform check to prevent original destination to have a nagative quantity_left
-- 
+- when destroying a transfer, prevent original destination to have a nagative stock
+- when destroying a restock, prevent stock quantity to fall negative
+
+July 30th
+- install wickedpdf gem and wkhtmltopdf application
+- add route locations/:id/report and controller for pdf report
+- add render template for pdf report
+- test pdf report generation
+
 Known Issues
-- when deleting a restock, quantity left for the location may become negative
-- when stock is inactive and amount is still positive, purchase can still happen
+- when stock is (implicitly) used in restock/transfer/purchase, destroy is still allowed
+- when stock is inactive and amount is still positive, purchase/transfer/restock can still happen (inactive only disallow alarms)
 - delete any object that is referenced will crash the system (e.g. delete employee who is listed as location manager)
+- when editing a transfer, destination could have negative amount

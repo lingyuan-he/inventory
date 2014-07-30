@@ -1,7 +1,9 @@
 Inventory::Application.routes.draw do
 
-  root :to => 'welcome#index'
+  root :to => 'homepage#index'
 
+  match 'locations/report/:id' => 'locations#show'  
+  
   resources :products
   
   resources :manufacturers

@@ -10,6 +10,7 @@
 <%= link_to 'Transfer', controller: 'transfers' %>
 <%= link_to 'Vending Machine', controller: 'vending_machines' %></h3>
 <h3>List all Locations</h3>
+<h3><font color='red'><%= flash[:alert] %></font></h3>
 <table border="1">
   <tr>
     <th>ID</th>
@@ -26,6 +27,7 @@
       <td><%= location.address %></td>
       <td><%= Employee.find(location.manager_id).name %></td>
       <td><%= location.note %></td>
+      <td><%= link_to 'Location Report', controller: "locations", action: "report", id: location.id %></td>
       <td><%= link_to 'Details', location_path(location) %></td>
       <td><%= link_to 'Edit', edit_location_path(location) %></td>
       <td><%= link_to 'Destroy', location_path(location), :method => :delete, :confirm => 'Are you sure?' %></td>

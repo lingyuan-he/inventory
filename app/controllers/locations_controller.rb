@@ -45,5 +45,21 @@ class LocationsController < ApplicationController
       redirect_to locations_path
     end
   end
+  
+  def report
+    @location = Location.find(params[:id])
+		@manager = Employee.find(@location.manager_id).name
+    @stocks = Stock.where("stocks.location_id = ?", params[:id])
+    @restocks = Restock.where("restocks.location_id = ?", params[:id])
+    @transfers = Transfer.where("transfers.from_location_id = ? or transfers.to_location_id = ?", params[:id], params[:id]).order("created_at DESC")
+		@time = Time.now.strftime("%Y-%m-%d %H:%M:%S")
+    render :pdf => "file_name",
+      :template => 'locations/report.pdf.erb',
+      :footer => {
+        :center => '[page] of [topage]',
+        :left => @location.name,
+        :right => @time
+      }
+  end
 
 end
