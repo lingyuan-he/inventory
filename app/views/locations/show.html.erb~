@@ -30,4 +30,84 @@
   <strong>Note:</strong>
   <%= @location.note %>
 </p>
-<p> <%= link_to 'Back', locations_path %> </p>
+<br><p><%= link_to 'Generate PDF Report', controller: "locations", action: "report", id: @location.id %></p><br>
+<p><h3>Stocks</h3></p>
+  <table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Product</th>
+    <th>Location</th>
+    <th>Quantity Left</th>
+    <th>Alarm Threshold</th>
+  </tr>
+  <% @stocks.each do |stock| %>
+    <tr>
+      <td><%= stock.id %></td>
+      <td><%= Product.find(stock.product_id).name %></td>
+      <td><%= Location.find(stock.location_id).name %></td>
+      <% if stock.quantity_left <= stock.alarm_threshold %>
+      <td><font color='red' ><%= stock.quantity_left %></font></td>
+      <td><strong><%= stock.alarm_threshold %></strong></td>
+      <% else %>
+      <td><%= stock.quantity_left %></td>
+      <td><%= stock.alarm_threshold %></td>
+      <% end %>
+    </tr>
+  <% end %>
+  </table>
+  <p><h3>Restocks</h3></p>
+  <table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Timestamp</th>
+    <th>Product</th>
+    <!--<th>Location</th>-->
+    <th>Quantity</th>
+    <th>Unit Cost</th>
+    <th>Restock Staff</th>
+    <th>Note</th>
+  </tr>
+  <% @restocks.each do |restock| %>
+    <tr>
+      <td><%= restock.id %></td>
+      <td><%= restock.created_at %></td>
+      <td><%= Product.find(restock.product_id).name %></td>
+      <!--<td><%= Location.find(restock.location_id).name %></td>-->
+      <td><%= restock.quantity %></td>
+      <td><%= restock.unit_cost %></td>
+      <td><%= Employee.find(restock.restock_staff_id).name %></td>
+      <td><%= restock.note %></td>
+    </tr>
+  <% end %>
+  </table>
+  <p><h3>Transfers</h3></p>
+  <table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Timestamp</th>
+    <th>Product</th>
+    <th>From Location</th>
+    <th>To Location</th>
+    <th>Quantity</th>
+    <th>Transfer Staff</th>
+    <th>Note</th>
+  </tr>
+  <% @transfers.each do |transfer| %>
+    <tr>
+      <td><%= transfer.id %></td>
+      <td><%= transfer.created_at %></td>
+      
+      <td><%= Product.find(transfer.product_id).name %></td>
+      <% if transfer.from_location_id = @location.id %>
+      <td><strong><%= Location.find(transfer.from_location_id).name %></strong></td>
+      <td><%= Location.find(transfer.to_location_id).name %></td>
+      <% else %>
+      <td><%= Location.find(transfer.from_location_id).name %></td>
+      <td><strong><%= Location.find(transfer.to_location_id).name %></strong></td>
+      <% end %>
+      <td><%= transfer.quantity %></td>
+      <td><%= Employee.find(transfer.transfer_staff_id).name %></td>
+      <td><%= transfer.note %></td>
+    </tr>
+  <% end %>
+  </table>

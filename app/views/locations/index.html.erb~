@@ -18,7 +18,7 @@
     <th>Address</th>
     <th>Manager</th>
     <th>Note</th>
-    <th colspan = "3"> </th>
+    <th colspan = "4"> </th>
   </tr>
   <% @locations.each do |location| %>
     <tr>
@@ -27,7 +27,7 @@
       <td><%= location.address %></td>
       <td><%= Employee.find(location.manager_id).name %></td>
       <td><%= location.note %></td>
-      <td><%= link_to 'Location Report', controller: "locations", action: "report", id: location.id %></td>
+      <td><%= link_to 'PDF Report', controller: "locations", action: "report", id: location.id %></td>
       <td><%= link_to 'Details', location_path(location) %></td>
       <td><%= link_to 'Edit', edit_location_path(location) %></td>
       <td><%= link_to 'Destroy', location_path(location), :method => :delete, :confirm => 'Are you sure?' %></td>

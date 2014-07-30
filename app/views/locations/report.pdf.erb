@@ -11,9 +11,9 @@
       }
     </script>
   </head>
-
   <body onload="number_pages()">
-  <h2>Vengo - Location Inventory Report</h2>
+  <%= wicked_pdf_image_tag_for_public 'vengo.png', :size => "150x90" %>
+  <h2><%= 'Location Inventory Report - ' + @location.name %></h2>
   <p><h3>Information</h3></p>
   <p>
     <strong>Location ID:</strong>
@@ -37,7 +37,7 @@
   </p>
   </body>
   <p><h3>Stocks</h3></p>
-<table border="1">
+  <table border="1">
   <tr>
     <th>ID</th>
     <th>Product</th>
@@ -59,9 +59,9 @@
       <% end %>
     </tr>
   <% end %>
-</table>
-<p><h3>Restocks</h3></p>
-<table border="1">
+  </table>
+  <p><h3>Restocks</h3></p>
+  <table border="1">
   <tr>
     <th>ID</th>
     <th>Timestamp</th>
@@ -84,9 +84,9 @@
       <td><%= restock.note %></td>
     </tr>
   <% end %>
-</table>
-<p><h3>Transfers</h3></p>
-<table border="1">
+  </table>
+  <p><h3>Transfers</h3></p>
+  <table border="1">
   <tr>
     <th>ID</th>
     <th>Timestamp</th>
@@ -115,5 +115,5 @@
       <td><%= transfer.note %></td>
     </tr>
   <% end %>
-</table>
+  </table>
 </html>

@@ -10,15 +10,10 @@
         value = unescape(z[1])
       }
     </script>
-    <style>
-    p.normal {
-      font-size: 8pt;
-    }
-    </style>
   </head>
-
   <body onload="number_pages()">
-  <h2>Vengo - Location Inventory Report</h2>
+  <%= wicked_pdf_image_tag_for_public 'vengo.png', :size => "150x90" %>
+  <h2><%= 'Location Inventory Report - ' + @location.name %></h2>
   <p><h3>Information</h3></p>
   <p>
     <strong>Location ID:</strong>

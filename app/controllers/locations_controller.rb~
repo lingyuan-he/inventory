@@ -11,6 +11,9 @@ class LocationsController < ApplicationController
 	
 	def show
 		@location = Location.find(params[:id])
+    @stocks = Stock.where("stocks.location_id = ?", params[:id])
+    @restocks = Restock.where("restocks.location_id = ?", params[:id]).order("created_at DESC")
+    @transfers = Transfer.where("transfers.from_location_id = ? or transfers.to_location_id = ?", params[:id], params[:id]).order("created_at DESC")
 		@manager = Employee.find(@location.manager_id).name
 	end
 	
@@ -50,10 +53,10 @@ class LocationsController < ApplicationController
     @location = Location.find(params[:id])
 		@manager = Employee.find(@location.manager_id).name
     @stocks = Stock.where("stocks.location_id = ?", params[:id])
-    @restocks = Restock.where("restocks.location_id = ?", params[:id])
-    @transfers = Transfer.where("transfers.from_location_id = ? or transfers.to_location_id = ?", params[:id], params[:id]).order("created_at")
+    @restocks = Restock.where("restocks.location_id = ?", params[:id]).order("created_at DESC")
+    @transfers = Transfer.where("transfers.from_location_id = ? or transfers.to_location_id = ?", params[:id], params[:id]).order("created_at DESC")
 		@time = Time.now.strftime("%Y-%m-%d %H:%M:%S")
-    render :pdf => "file_name",
+    render :pdf => @location.name.gsub(' ','_') + '_' + Time.now.strftime("%Y-%m-%d %H:%M:%S"),
       :template => 'locations/report.pdf.erb',
       :footer => {
         :center => '[page] of [topage]',
